@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Liste des promotions</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Année</th>
+        <th>Sigle</th>
+        <th>Capacité maximale</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of promotions;" > 
+        <td>{{p.siglePromotion}}</td>
+        <td>{{p.promotionPK.anneeUniversitaire}}</td>
+        <td>{{p.formation.codeFormation}}</td>
+        <td>{{p.nbMaxEtudiant}}</td>
+        
+        <td><!--<<button type="button" class="btn btn-danger" style="margin-right: 9px;" (click)="delete(p.promotionPK)">delete</button>-->
+          <button type="button" class="btn btn-success" style="margin-right: 9px;"(click)="Afficheretudiant(p)">Info</button>
+          <!--<<button type="button" class="btn btn-info" style="margin-right: 9px;" >modifier</button></td>-->
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+</body>
+</html>

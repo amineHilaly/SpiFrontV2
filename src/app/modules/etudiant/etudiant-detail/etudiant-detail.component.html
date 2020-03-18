@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://use.fontawesome.com/47b33d33da.js"></script>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+
+    <form class="well form-horizontal" [formGroup] = "myForm" 
+    >
+<fieldset>
+
+<!-- Form Name -->
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Numero étudiant</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="numeroEtudiant" id="numeroEtudiant" formControlName="numeroEtudiant" value="{{numeroEtudiant}}" class="form-control"  type="text" disabled> 
+    </div>
+    
+
+  </div>
+</div>
+<!-- Text input-->
+
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Nom</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="nom" formControlName="nom" ng-model="nom" required placeholder="Nom" class="form-control"  type="text" value="{{nom}}" disabled>
+
+
+     </div>
+     
+
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Prénom</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="prenom" formControlName="prenom" placeholder="Prénom" class="form-control"  type="text" value="{{prenom}}" disabled>
+
+  
+
+
+    </div>
+    
+  </div>
+</div>
+
+  <div class="form-group"> 
+  <label class="col-md-4 control-label">Civilité</label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+       <span class="input-group-addon"> <i class="glyphicon glyphicon-user"></i></span>
+    <input name="sexe" formControlName="sex" class="form-control selectpicker" value="{{sex}}" disabled>
+      
+  </div>
+
+
+  
+
+
+</div>
+</div>
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Date Naissance</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+  <input  name="date_naissance" formControlName="dateNaissance" placeholder="Username" class="form-control"  type="text" value="{{dateNaissance}}" disabled>
+    </div>
+
+    
+
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Lieu Naissance</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="lieu_naissance" formControlName="lieuNaissance" placeholder="Lieu Naissance" class="form-control"  type="text" value="{{lieuNaissance}}" disabled>
+    </div>
+
+   
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Nationalité</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+  <input name="nationalite" formControlName="nationalite" class="form-control selectpicker" value="{{nationalite}}" disabled>
+
+
+</div>
+  </div>
+</div>
+
+<!-- Text input-->
+    <div class="form-group">
+  <label class="col-md-4 control-label">E-Mail</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <input name="email" formControlName="email" placeholder="E-Mail Address" class="form-control"  type="text" value="{{email}}" disabled>
+    </div>
+
+    
+
+  </div>
+</div>
+  
+  <div class="form-group">
+  <label class="col-md-4 control-label">E-Mail UBO</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <input name="email_ubo" formControlName="emailUbo" placeholder="E-Mail Address" class="form-control"  type="text" value="{{emailUbo}}" disabled>
+    </div>
+
+    
+
+  </div>
+</div>
+
+
+<!-- Text input-->
+       
+<div class="form-group">
+  <label class="col-md-4 control-label">Téléphone Mobile</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+  <input name="num_portable" formControlName="numPortable" placeholder="Mobile" class="form-control" type="text" value="{{numPortable}}" disabled>
+    </div>
+  </div>
+</div>
+  
+  <div class="form-group">
+  <label class="col-md-4 control-label">Téléphone Fixe</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+  <input name="num_fixe" formControlName="numFixe" placeholder="Fixe" class="form-control" type="text" value="{{numFixe}}" disabled>
+    </div>
+  </div>
+</div>
+  
+  <div class="form-group">
+  <label class="col-md-4 control-label">Adresse</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+  <input name="adresse" formControlName="adresse" placeholder="Adresse" class="form-control" type="text" value="{{adresse}}" disabled>
+    </div>
+  </div>
+</div>
+  
+  <div class="form-group">
+  <label class="col-md-4 control-label">Code Postal</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+  <input name="code_postal" formControlName="codePostal" placeholder="Code Postal" class="form-control" type="text" value="{{codePostal}}" disabled>
+    </div>
+  </div>
+</div>
+  
+  <div class="form-group">
+  <label class="col-md-4 control-label">Ville</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+  <input name="ville" formControlName="ville" placeholder="ville" class="form-control" type="text" value="{{ville}}" disabled>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Pays d'origine</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+  <input name="paysOrigine" formControlName="paysOrigine" class="form-control selectpicker" value="{{paysOrigine}}" disabled>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Université d'origine</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+  <input name="universiteOrigine" formControlName="universiteOrigine" class="form-control selectpicker" value="{{universiteOrigine}}" disabled>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Groupe TP</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-users"></i></span>
+  <input name="groupe_tp" formControlName="groupeTp" placeholder="Groupe TP" class="form-control" type="text" value="{{groupeTp}}" disabled>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Groupe Anglais</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-users"></i></span>
+  <input name="groupe_anglais" formControlName="groupeAnglais" placeholder="Groupe Anglais" class="form-control" type="text" value="{{groupeAnglais}}" disabled>
+    </div>
+  </div>
+</div>
+<!-- Select Basic -->
+
+
+
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Promotion</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <input name="promotion" formControlName="promotion" class="form-control selectpicker" value="{{promotion}}" disabled>
+  </div>
+</div>
+
+
+
+
+</fieldset>
+</form>
+</div>
+    
+  
+</body>
+
+</html>

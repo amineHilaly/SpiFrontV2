@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://use.fontawesome.com/47b33d33da.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
+        integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container" style="width: inherit">
+
+        <form class="well form-horizontal" [formGroup]="myForm" (ngSubmit)="submit()">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>
+                    <h2><b>Modifier un couple de qualificatifs</b></h2>
+                </legend><br>
+
+                <div class="form-row">
+                    <label class="col-md-1 control-label">Minimale:</label>
+                    <div class="col-md-5 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+                            <input id ="min" name="minimale" placeholder="Minimale" class="form-control" type="text"
+                                formControlName="min" required>
+                        </div>
+                    </div>
+                    <label class="col-md-1 control-label">Maximale:</label>
+                    <div class="col-md-5 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
+                            <input id ="max" name="maximale" placeholder="Maximale" class="form-control" type="text"
+                                formControlName="max" required>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-5 control-label"></label>
+                    <div class="col-md-5"><br>
+                        <button class="btn btn-warning">Modifier <span class="glyphicon glyphicon-send"></span></button>
+
+                    </div>
+                </div>
+
+            </fieldset>
+            <div *ngIf="error" class="alert alert-danger" role="alert" >
+                {{message}}
+            </div> 
+        </form>
+    </div><!-- /.container -->
+
+
+</body>
+
+</html>
