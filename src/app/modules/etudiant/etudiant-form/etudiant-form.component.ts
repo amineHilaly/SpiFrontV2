@@ -18,7 +18,7 @@ export class EtudiantFormComponent implements OnInit {
   name = new FormControl(null);
   pays: any = [];
   univOrigin: any[];
-  promition: any = {};
+  promotion: any = {};
   message: string = "";
   error: boolean = false;
   fields = ['numeroEtudiant', 'nom', 'prenom', "sex", 'dateNaissance', 'lieuNaissance', 'nationalite', 'email',
@@ -68,10 +68,6 @@ export class EtudiantFormComponent implements OnInit {
     universiteOrigine: new FormControl(),
     groupeTp: new FormControl(),
     groupeAnglais: new FormControl(),
-    promotion: new FormControl()
-
-
-
 
   })
   submit(): void {
@@ -119,24 +115,15 @@ export class EtudiantFormComponent implements OnInit {
       paysOrigine: this.myForm.controls['paysOrigine'].value,
       universiteOrigine: this.myForm.controls['universiteOrigine'].value,
       groupeTp: this.myForm.controls['groupeTp'].value,
-      groupeAnglais: this.myForm.controls['groupeAnglais'].value
+      groupeAnglais: this.myForm.controls['groupeAnglais'].value,
+      promotion : this.promotion
     })
-    console.log(etudiant)
     this.etudiantService.save(etudiant).subscribe((data) => {
-      this.gotoEtudiantList();
+      
     });
   }
 
-
-
-  gotoEtudiantList() {
-    this.router.navigate(['/Etudiant/etudiants']);
-  }
   ngOnInit() {
 
   }
-
-
-
-
 }

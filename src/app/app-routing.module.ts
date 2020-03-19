@@ -50,7 +50,7 @@ const routes: Routes = [{
     component: EtudiantDetailComponent }
     ,
 
-  { path: 'Etudiant/modif', 
+  { path: 'Etudiant/update', 
     component: EtudiantUpdateComponent }
   ,{
     path: '',

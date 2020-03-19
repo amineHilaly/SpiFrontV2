@@ -58,13 +58,12 @@ export class EtudiantDetailComponent implements OnInit {
       universiteOrigine: new FormControl(),
       groupeTp: new FormControl(),
       groupeAnglais: new FormControl(),
-      promotion: new FormControl()
     })
     this.numeroEtudiant= EtudiantDetailComponent.etudiant['noEtudiant'];
     this.nom= EtudiantDetailComponent.etudiant['nom'];
     this. prenom= EtudiantDetailComponent.etudiant['prenom'];
-    this. sex= EtudiantDetailComponent.etudiant['sexe']=="F"? "Féminin" : "Masculin";
-    this. dateNaissance= this.datepipe.transform(new Date(EtudiantDetailComponent.etudiant['dateNaissance']), 'dd/MM/yyyy');
+    this. sex= EtudiantDetailComponent.etudiant['sexe']=="F"? "Madame" : "Monsieur";
+    this. dateNaissance= this.datepipe.transform(new Date(EtudiantDetailComponent.etudiant['dateNaissance']), 'dd/MM/yyyy');    
     this. lieuNaissance= EtudiantDetailComponent.etudiant['lieuNaissance'];
     this. nationalite= EtudiantDetailComponent.etudiant['nationalite'];
     this. email= EtudiantDetailComponent.etudiant['email'];
@@ -79,9 +78,6 @@ export class EtudiantDetailComponent implements OnInit {
     this. universiteOrigine= EtudiantDetailComponent.etudiant['universiteOrigine'];
     this. groupeTp= EtudiantDetailComponent.etudiant['groupeTp'];
     this. groupeAnglais= EtudiantDetailComponent.etudiant['groupeAnglais'];
-    this. promotion= EtudiantDetailComponent.etudiant['promotion']['promotionPK']['anneeUniversitaire'] + ' ' + EtudiantDetailComponent.etudiant['promotion']['promotionPK']['formation']['codeFormation'];
-    console.log(EtudiantDetailComponent.etudiant);
-    
   }
   ngOnInit() {
   }

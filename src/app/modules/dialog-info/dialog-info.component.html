@@ -17,8 +17,8 @@
                 <td>{{e.noEtudiant}}</td>
                 <td>{{e.nom}} {{e.prenom}}</td>
                 <td><!--<button type="button" class="btn btn-danger" style="margin-right: 9px;" (click)="delete(p.promotionPK)">X</button>-->
-                    <button type="button" class="btn btn-success" style="margin-right: 9px;"(click)="Afficheretudiant(e.noEtudiant)">détail</button>
-                    <button type="button" class="btn btn-info" style="margin-right: 9px;" >modifier</button></td>
+                    <button type="button" class="btn btn-success" style="margin-right: 9px;"(click)="afficherEtudiant(e.noEtudiant)">détail</button>
+                    <button type="button" class="btn btn-info" style="margin-right: 9px;" (click)="updateEtudiant(e.noEtudiant)">modifier</button></td>
               </tr>
               
             </tbody>
