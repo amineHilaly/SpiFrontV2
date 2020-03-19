@@ -45,8 +45,8 @@
             <div class="col-md-7 selectContainer">
               <div class="input-group">
                 <span class="input-group-addon"> <i class="glyphicon glyphicon-user"></i></span>
-                <select id="sex" name="sex" formControlName="sex"  [(ngModel)]="sex" class="form-control selectpicker">
-                  <option *ngFor="let s of sexes " [ngValue]="s.code" >{{s.signification}}</option>
+                <select id="sex" name="sex" formControlName="sex" [(ngModel)]="sex" class="form-control selectpicker">
+                  <option *ngFor="let s of sexes " [ngValue]="s.code">{{s.signification}}</option>
                 </select>
               </div>
             </div>
@@ -90,7 +90,7 @@
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                 <input name="date_naissance" [ngModel]="dateNaissance | date:'yyyy-MM-dd'"
-                  formControlName="dateNaissance" id="dateNaissance"  class="form-control" type="date">
+                  formControlName="dateNaissance" id="dateNaissance" class="form-control" type="date">
               </div>
             </div>
           </div>
@@ -317,7 +317,7 @@
                   <option value="Yéménite">Yéménite (Yémen)</option>
                   <option value="Zambienne">Zambienne (Zambie)</option>
                   <option value="Zimbabwéenne">Zimbabwéenne (Zimbabwe)</option>
-                
+
                 </select>
               </div>
             </div>
@@ -330,7 +330,7 @@
                 <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
                 <select name="paysOrigine" formControlName="paysOrigine" id="paysOrigine"
                   class="form-control selectpicker" [(ngModel)]="paysOrigine">
-                  <option *ngFor="let p of myPays " [ngValue]="p.abreviation" >{{p.signification}}</option>
+                  <option *ngFor="let p of myPays " [ngValue]="p.abreviation">{{p.signification}}</option>
                 </select>
               </div>
             </div>
@@ -462,8 +462,8 @@
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
                 <select name="universiteOrigine" formControlName="universiteOrigine" id="universiteOrigine"
-                  class="form-control selectpicker" [(ngModel)] = "universiteOrigine">
-                  <option *ngFor="let u of myUnivs " [ngValue]="u.abreviation" >{{u.signification}}</option>
+                  class="form-control selectpicker" [(ngModel)]="universiteOrigine">
+                  <option *ngFor="let u of myUnivs " [ngValue]="u.abreviation">{{u.signification}}</option>
                 </select>
               </div>
             </div>
@@ -483,9 +483,14 @@
         </div>
 
       </fieldset>
-
       <div *ngIf="error" class="alert alert-danger" role="alert">
-        {{message}}
+        <ul>
+          <ng-container *ngFor="let m of messages">
+            <ng-container *ngIf="m.exists">
+              <li>{{ m.text }}</li>
+            </ng-container>
+          </ng-container>
+        </ul>
       </div>
     </form>
   </div>

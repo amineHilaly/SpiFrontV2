@@ -39,10 +39,8 @@ export class EtudiantService {
   }
 
 
-    update(etudiant){ 
-      this.setter(etudiant);
-      this.router.navigate(['/modif'])
-
+  update(etudiant){ 
+    return this.http.put(this.etudiantUrl, etudiant);
   }
 
  

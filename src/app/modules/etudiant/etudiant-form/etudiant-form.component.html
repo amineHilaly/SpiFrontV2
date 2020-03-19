@@ -13,7 +13,7 @@
 <body style="height: fit-content;">
   <div class="container" style=" width: inherit; ">
     <div style=" border-bottom: 1px solid #aaa; margin-bottom: 15px; margin-left: auto; margin-right: auto;">
-      <h3>Ajouter un étudiant à la promotion : </h3>
+      <h3>Ajouter un étudiant à la promotion : {{myPromotion.siglePromotion}}</h3>
     </div>
     <form class="well form-horizontal" [formGroup]="myForm">
       <fieldset>
@@ -45,7 +45,7 @@
             <div class="col-md-7 selectContainer">
               <div class="input-group">
                 <span class="input-group-addon"> <i class="glyphicon glyphicon-user"></i></span>
-                <select id = "sex" name="sex" formControlName="sex" class="form-control selectpicker">
+                <select id="sex" name="sex" formControlName="sex" class="form-control selectpicker">
                   <option hidden>Civilité</option>
                   <option value="M">Monsieur</option>
                   <option value="F">Madame</option>
@@ -65,8 +65,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input name="nom" formControlName="nom" id="nom" ng-model="nom" required placeholder="Nom" class="form-control"
-                  type="text">
+                <input name="nom" formControlName="nom" id="nom" ng-model="nom" required placeholder="Nom"
+                  class="form-control" type="text">
               </div>
             </div>
           </div>
@@ -78,7 +78,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input name="prenom" formControlName="prenom" id="prenom" placeholder="Prénom" class="form-control" type="text">
+                <input name="prenom" formControlName="prenom" id="prenom" placeholder="Prénom" class="form-control"
+                  type="text">
               </div>
             </div>
           </div>
@@ -90,8 +91,8 @@
             <div class="inputGroupContainer col-md-6">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                <input name="date_naissance" formControlName="dateNaissance" id="dateNaissance" placeholder="Username" class="form-control"
-                  type="date">
+                <input name="date_naissance" formControlName="dateNaissance" id="dateNaissance" placeholder="Username"
+                  class="form-control" type="date">
               </div>
             </div>
           </div>
@@ -103,8 +104,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                <input name="lieu_naissance" formControlName="lieuNaissance" id="lieuNaissance" placeholder="Lieu Naissance"
-                  class="form-control" type="text">
+                <input name="lieu_naissance" formControlName="lieuNaissance" id="lieuNaissance"
+                  placeholder="Lieu Naissance" class="form-control" type="text">
               </div>
             </div>
           </div>
@@ -116,7 +117,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
-                <select name="nationalite" formControlName="nationalite" id="nationalite" class="form-control selectpicker">
+                <select name="nationalite" formControlName="nationalite" id="nationalite"
+                  class="form-control selectpicker">
 
 
                   <option hidden>Seléctionner votre nationalité</option>
@@ -213,7 +215,8 @@
                   <option value="Kenyane">Kenyane (Kenya)</option>
                   <option value="Kirghize">Kirghize (Kirghizistan)</option>
                   <option value="Kiribatienne">Kiribatienne (Kiribati)</option>
-                  <option value="Kittitienne et Névicienne">Kittitienne et Névicienne (Saint-Christophe-et-Niévès)</option>
+                  <option value="Kittitienne et Névicienne">Kittitienne et Névicienne (Saint-Christophe-et-Niévès)
+                  </option>
                   <option value="Koweïtienne">Koweïtienne (Koweït)</option>
                   <option value="Laotienne">Laotienne (Laos)</option>
                   <option value="Lesothane">Lesothane (Lesotho)</option>
@@ -272,7 +275,8 @@
                   <option value="Rwandaise">Rwandaise (Rwanda)</option>
                   <option value="Saint-Lucienne">Saint-Lucienne (Sainte-Lucie)</option>
                   <option value="Saint-Marinaise">Saint-Marinaise (Saint-Marin)</option>
-                  <option value="Saint-Vincentaise et Grenadine">Saint-Vincentaise et Grenadine (Saint-Vincent-et-les Grenadines)</option>
+                  <option value="Saint-Vincentaise et Grenadine">Saint-Vincentaise et Grenadine (Saint-Vincent-et-les
+                    Grenadines)</option>
                   <option value="Salomonaise">Salomonaise (Îles Salomon)</option>
                   <option value="Salvadorienne">Salvadorienne (Salvador)</option>
                   <option value="Samoane">Samoane (Samoa)</option>
@@ -327,7 +331,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
-                <select name="paysOrigine" formControlName="paysOrigine" id="paysOrigine" class="form-control selectpicker">
+                <select name="paysOrigine" formControlName="paysOrigine" id="paysOrigine"
+                  class="form-control selectpicker">
                   <option hidden>Seléctionner votre pays d'origine</option>
                   <option *ngFor="let p of pays " [value]="p.abreviation">{{p.signification}}</option>
                 </select>
@@ -356,8 +361,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input name="email_ubo" formControlName="emailUbo" id="emailUbo" placeholder="E-Mail Address" class="form-control"
-                  type="email">
+                <input name="email_ubo" formControlName="emailUbo" id="emailUbo" placeholder="E-Mail Address"
+                  class="form-control" type="email">
               </div>
             </div>
           </div>
@@ -371,8 +376,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                <input name="num_portable" formControlName="numPortable" id="numPortable" placeholder="Mobile" class="form-control"
-                  type="text">
+                <input name="num_portable" formControlName="numPortable" id="numPortable" placeholder="Mobile"
+                  class="form-control" type="text">
               </div>
             </div>
           </div>
@@ -382,7 +387,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
-                <input name="num_fixe" formControlName="numFixe" id="numFixe" placeholder="Fixe" class="form-control" type="text">
+                <input name="num_fixe" formControlName="numFixe" id="numFixe" placeholder="Fixe" class="form-control"
+                  type="text">
               </div>
             </div>
           </div>
@@ -394,7 +400,8 @@
             <div class="col-md-12 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                <input name="adresse" formControlName="adresse" id="adresse" placeholder="Adresse" class="form-control" type="text">
+                <input name="adresse" formControlName="adresse" id="adresse" placeholder="Adresse" class="form-control"
+                  type="text">
               </div>
             </div>
           </div>
@@ -405,8 +412,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                <input name="code_postal" formControlName="codePostal" id="codePostal" placeholder="Code Postal" class="form-control"
-                  type="text">
+                <input name="code_postal" formControlName="codePostal" id="codePostal" placeholder="Code Postal"
+                  class="form-control" type="text">
               </div>
             </div>
           </div>
@@ -416,7 +423,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                <input name="ville" formControlName="ville" id="ville" placeholder="ville" class="form-control" type="text">
+                <input name="ville" formControlName="ville" id="ville" placeholder="ville" class="form-control"
+                  type="text">
               </div>
             </div>
           </div>
@@ -432,8 +440,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                <input name="groupe_tp" formControlName="groupeTp" id="groupeTp" placeholder="Groupe TP" class="form-control"
-                  type="text">
+                <input name="groupe_tp" formControlName="groupeTp" id="groupeTp" placeholder="Groupe TP"
+                  class="form-control" type="text">
               </div>
             </div>
           </div>
@@ -442,8 +450,8 @@
             <div class="inputGroupContainer col-md-7">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                <input name="groupe_anglais" formControlName="groupeAnglais" id="groupeAnglais" placeholder="Groupe Anglais"
-                  class="form-control" type="text" required="true">
+                <input name="groupe_anglais" formControlName="groupeAnglais" id="groupeAnglais"
+                  placeholder="Groupe Anglais" class="form-control" type="text" required="true">
               </div>
             </div>
           </div>
@@ -457,12 +465,13 @@
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
-                <select name="universiteOrigine" formControlName="universiteOrigine" id="universiteOrigine" class="form-control selectpicker">
+                <select name="universiteOrigine" formControlName="universiteOrigine" id="universiteOrigine"
+                  class="form-control selectpicker">
                   <option hidden>Seléctionner votre université d'origine</option>
                   <option *ngFor="let u of univOrigin " [value]="u.abreviation">{{u.signification}}</option>
                 </select>
               </div>
-            </div>  
+            </div>
           </div>
         </div>
 
@@ -485,9 +494,15 @@
 
       </fieldset>
 
-      <div *ngIf="error" class="alert alert-danger" role="alert" >
-        {{message}}
-    </div> 
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+        <ul>
+          <ng-container *ngFor="let m of messages">
+            <ng-container *ngIf="m.exists">
+              <li>{{ m.text }}</li>
+            </ng-container>
+          </ng-container>
+        </ul>
+      </div>
     </form>
   </div>
 
