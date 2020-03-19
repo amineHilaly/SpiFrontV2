@@ -3,6 +3,8 @@ import { PromotionService } from '../../../service/promotion.service';
 import { MatTableDataSource, MatPaginator, MatDialog} from '@angular/material';
 import { DialogInfoComponent } from '../../dialog-info/dialog-info.component';
 import { Router } from '@angular/router';
+import { EtudiantsPromotionComponent } from '../../etudiant/etudiants-promotion/etudiants-promotion.component';
+
 
 
 export interface PeriodicElement {
@@ -50,7 +52,7 @@ export class PromotionComponent implements OnInit {
 
   DetailPromotion(promotionPK){
     this.dialog.open(DialogInfoComponent);
-
+    //EtudiantsPromotionComponent.etudiants
     this.promotionService.getdetailPromotion(promotionPK)
       .subscribe((DetaiP) => {
         this.detail = DetaiP;
@@ -73,5 +75,12 @@ export class PromotionComponent implements OnInit {
       console.log(err)
     })
 
+  }
+
+
+
+  RederectionEtudiants(promotionParam){
+    EtudiantsPromotionComponent.promotion=promotionParam;
+    this.router.navigateByUrl("EtudiantsPromotion/"+promotionParam.promotionPK.anneeUniversitaire+"/"+promotionParam.promotionPK.formation.codeFormation);
   }
 }

@@ -12,6 +12,7 @@ import { EtudiantFormComponent } from './modules/etudiant/etudiant-form/etudiant
 import { EtudiantDetailComponent } from './modules/etudiant/etudiant-detail/etudiant-detail.component';
 import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etudiant-update.component';
 import { from } from 'rxjs';
+import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
 
 
 
@@ -28,6 +29,9 @@ const routes: Routes = [{
       
     }]
   }, {
+    path: 'EtudiantsPromotion/:annee/:codeformation',
+    component: EtudiantsPromotionComponent
+  },{
     path: 'Qualificatif',
     component: QualificatifComponent
   },
