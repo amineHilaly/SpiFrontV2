@@ -40,8 +40,7 @@ export class PromotionService {
   }
 
   getdetailPromotion(promotionPK): Observable<any>{
-    console.log(promotionPK);
-    this.promotionPksend=promotionPK;
+    
     //this.messageSource.next(this.promotionPksend);
     return this.http.post(this.host+"/promotions",promotionPK);
   }

@@ -21,7 +21,7 @@
         <th>Code</th>
         <th>Année</th>
         <th>Sigle</th>
-        <th>Capacité maximale</th>
+        <th>Nombre Etudiant</th>
         <th></th>
       </tr>
     </thead>
@@ -30,10 +30,10 @@
         <td>{{p.siglePromotion}}</td>
         <td>{{p.promotionPK.anneeUniversitaire}}</td>
         <td>{{p.formation.codeFormation}}</td>
-        <td>{{p.nbMaxEtudiant}}</td>
+        <td>{{p.nbrEtudiant}}</td>
         
         <td><!--<<button type="button" class="btn btn-danger" style="margin-right: 9px;" (click)="delete(p.promotionPK)">delete</button>-->
-          <button type="button" class="btn btn-success" style="margin-right: 9px;"(click)="Afficheretudiant(p)">Info</button>
+          <button type="button" class="btn btn-success" style="margin-right: 9px;"(click)="RederectionEtudiants(p)">Info</button>
           <!--<<button type="button" class="btn btn-info" style="margin-right: 9px;" >modifier</button></td>-->
       </tr>
       

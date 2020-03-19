@@ -17,6 +17,8 @@ import { EtudiantService } from './service/etudiant.service';
 import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etudiant-update.component';
 import { DatePipe } from '@angular/common';
 import { ConfirmationComponent } from './modules/extra/confirmation/confirmation.component';
+import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ConfirmationComponent } from './modules/extra/confirmation/confirmation
     EtudiantFormComponent,
     EtudiantUpdateComponent,
     EtudiantDetailComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    EtudiantsPromotionComponent,
+    
   ],
   entryComponents: [DialogInfoComponent, ConfirmationComponent],
   imports: [
