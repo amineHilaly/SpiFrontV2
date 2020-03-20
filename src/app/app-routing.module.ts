@@ -50,7 +50,7 @@ const routes: Routes = [{
     component: EtudiantFormComponent }
     ,
 
-  { path: 'Etudiant/detail/:noEtu', 
+  { path: 'Etudiant/detail', 
     component: EtudiantDetailComponent }
     ,
 

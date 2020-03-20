@@ -5,7 +5,7 @@ import { PromotionComponent } from 'src/app/modules/promotion/promotion/promotio
 import { RouterModule } from '@angular/router';
 import { QualificatifComponent } from 'src/app/modules/qualificatif/qualificatif/qualificatif.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatSidenavModule, MatDividerModule, MatCardModule, MatPaginatorModule, MatTableModule } from '@angular/material';
+import { MatSidenavModule, MatDividerModule, MatCardModule, MatPaginatorModule, MatTableModule, MatIconModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PromotionService } from '../../service/promotion.service';
 
@@ -25,7 +25,8 @@ import { PromotionService } from '../../service/promotion.service';
     FlexLayoutModule,
     MatCardModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule
   ],
   providers: [
     PromotionService

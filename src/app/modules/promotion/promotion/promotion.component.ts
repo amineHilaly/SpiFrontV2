@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PromotionService } from '../../../service/promotion.service';
 import { MatTableDataSource, MatPaginator, MatDialog} from '@angular/material';
 import { DialogInfoComponent } from '../../dialog-info/dialog-info.component';
@@ -7,16 +7,12 @@ import { EtudiantsPromotionComponent } from '../../etudiant/etudiants-promotion/
 
 
 
-export interface PeriodicElement {
- 
-  symbol: string;
-};
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './promotion.component.html',
   styleUrls: ['./promotion.component.scss']
 })
+
 export class PromotionComponent implements OnInit {
 
 

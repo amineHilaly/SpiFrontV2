@@ -15,6 +15,7 @@ export class EtudiantDetailComponent implements OnInit {
   public static etudiant: any;
   private myForm: FormGroup;
   public static pays: any;
+  public static univs;
   numeroEtudiant: any;
       nom: any;
       prenom: any;
@@ -34,7 +35,7 @@ export class EtudiantDetailComponent implements OnInit {
       groupeTp: any;
       groupeAnglais: any;
       promotion: any;
-  constructor(private etudiantService: EtudiantService, public datepipe: DatePipe, private router: Router, private route: ActivatedRoute) {
+  constructor(private etudiantService: EtudiantService, public datepipe: DatePipe, private router: Router, ) {
     if(EtudiantDetailComponent.etudiant == undefined){
       router.navigateByUrl('/Promotion')
       return;
@@ -74,8 +75,8 @@ export class EtudiantDetailComponent implements OnInit {
     this. codePostal= EtudiantDetailComponent.etudiant['codePostal'];
     this. ville= EtudiantDetailComponent.etudiant['ville'];
     this. paysOrigine= EtudiantDetailComponent.etudiant['paysOrigine'];
-    this. paysOrigine= EtudiantDetailComponent.pays.find(p=> p.code = EtudiantDetailComponent.etudiant['paysOrigine']).signification;
-    this. universiteOrigine= EtudiantDetailComponent.etudiant['universiteOrigine'];
+    this. paysOrigine= EtudiantDetailComponent.pays.find(p=> p.code == EtudiantDetailComponent.etudiant['paysOrigine']).signification;
+    this. universiteOrigine= EtudiantDetailComponent.univs.find( u => u.code == EtudiantDetailComponent.etudiant['universiteOrigine']).signification;
     this. groupeTp= EtudiantDetailComponent.etudiant['groupeTp'];
     this. groupeAnglais= EtudiantDetailComponent.etudiant['groupeAnglais'];
   }

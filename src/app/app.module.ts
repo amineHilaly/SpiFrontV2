@@ -18,6 +18,7 @@ import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etud
 import { DatePipe } from '@angular/common';
 import { ConfirmationComponent } from './modules/extra/confirmation/confirmation.component';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
+import { MatIconModule } from '@angular/material';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promot
     BrowserAnimationsModule,
     DefaultModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [EtudiantService, DatePipe],
   bootstrap: [AppComponent]
