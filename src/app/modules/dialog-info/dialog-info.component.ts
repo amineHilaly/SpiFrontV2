@@ -5,6 +5,7 @@ import { EtudiantService } from '../../service/etudiant.service';
 import { EtudiantDetailComponent } from '../etudiant/etudiant-detail/etudiant-detail.component';
 import { MatDialogRef } from '@angular/material';
 import { DomaineService } from 'src/app/service/domaine.service';
+import { EtudiantUpdateComponent } from '../etudiant/etudiant-update/etudiant-update.component';
 
 @Component({
   selector: 'app-dialog-info',
@@ -13,38 +14,57 @@ import { DomaineService } from 'src/app/service/domaine.service';
 })
 export class DialogInfoComponent implements OnInit {
 
-  public static etudiants :any;
-  public myEtudiant:any;
-  public static promotionDialog:any;
-  public promotion:any;
+  public static etudiants: any;
+  public myEtudiant: any;
+  public static promotionDialog: any;
+  public promotion: any;
 
-  constructor(private prmotionService: PromotionService, private etudiantService: EtudiantService, private domaineService: DomaineService,private activatedRoute:ActivatedRoute, private router:Router,
-    public dialogRef: MatDialogRef<DialogInfoComponent>){
-    this.myEtudiant =DialogInfoComponent.etudiants;
-   this.promotion=DialogInfoComponent.promotionDialog;
+  constructor(private prmotionService: PromotionService, private etudiantService: EtudiantService, private domaineService: DomaineService, private activatedRoute: ActivatedRoute, private router: Router,
+    public dialogRef: MatDialogRef<DialogInfoComponent>) {
+    this.myEtudiant = DialogInfoComponent.etudiants;
+    this.promotion = DialogInfoComponent.promotionDialog;
     console.log(this.myEtudiant);
   }
   ngOnInit() {
-    
-    
+
+
   }
 
-  Afficheretudiant(noEtudiant){
-    let etudiant : any;
-  this.etudiantService.detail(noEtudiant).subscribe((data) => {
-    etudiant = data;
-    EtudiantDetailComponent.etudiant = data;
-    this.domaineService.getPays().subscribe((pays) =>{
-      console.log((pays));
-    EtudiantDetailComponent.pays = pays;
-      this.router.navigateByUrl("Etudiant/detail/"+noEtudiant);
-      this.dialogRef.close();
+  afficherEtudiant(noEtudiant) {
+    let etudiant: any;
+    this.etudiantService.detail(noEtudiant).subscribe((data) => {
+      etudiant = data;
+      EtudiantDetailComponent.etudiant = data;
+      this.domaineService.getPays().subscribe((pays) => {
+        console.log((pays));
+        EtudiantDetailComponent.pays = pays;
+        this.router.navigateByUrl("Etudiant/detail/" + noEtudiant);
+        this.dialogRef.close();
+      })
     })
-  })
+
+  }
+
+  updateEtudiant(noEtudiant) {
+    let etudiant: any;
+    this.etudiantService.detail(noEtudiant).subscribe((data) => {
+      etudiant = data;
+      EtudiantUpdateComponent.etudiant = data;
+      this.domaineService.getPays().subscribe((pays) => {
+        EtudiantUpdateComponent.pays = pays;
+        this.domaineService.getUniversites().subscribe((univs) => {
+          EtudiantUpdateComponent.univOrigin = univs;
+          console.log(univs);
+          this.router.navigateByUrl("Etudiant/update");
+          this.dialogRef.close();
+        })
+      })
+
+    })
+
   }
 
 
 
-  
-  
+
 }

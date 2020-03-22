@@ -49,9 +49,15 @@
                     </div>
                 </div>
             </fieldset>
-            <div *ngIf="error" class="alert alert-danger" role="alert" >
-                {{message}}
-            </div>        
+            <div *ngIf="error" class="alert alert-danger" role="alert">
+                <ul>
+                  <ng-container *ngFor="let m of messages">
+                    <ng-container *ngIf="m.exists">
+                      <li>{{ m.text }}</li>
+                    </ng-container>
+                  </ng-container>
+                </ul>
+              </div>        
         </form>
     </div><!-- /.container -->
 

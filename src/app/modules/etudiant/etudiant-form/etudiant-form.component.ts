@@ -18,8 +18,30 @@ export class EtudiantFormComponent implements OnInit {
   name = new FormControl(null);
   pays: any = [];
   univOrigin: any[];
-  promition: any = {};
-  message: string = "";
+  static promotion: any ;
+  myPromotion;
+  messages = [{
+    text:"un ou plusieur champ sont vides.",
+    exists:false
+  },{
+    text:"un ou plusieur champ sont remplis par des valeurs trop longues.",
+    exists:false
+  },{
+    text:"la date est mal remplis.",
+    exists:false
+  },{
+    text:"groupe Tp doit étre égale à 1, 2 ou vide.",
+    exists:false
+  },{
+    text:"groupe Anglais doit étre égale à 1, 2 ou vide.",
+    exists:false
+  },{
+    text:"le numéro d'étudiant que vous avez choisis existe déja dans notre base de données.",
+    exists:false
+  },{
+    text:"Erreur de l'insertion.",
+    exists:false
+  }]
   error: boolean = false;
   fields = ['numeroEtudiant', 'nom', 'prenom', "sex", 'dateNaissance', 'lieuNaissance', 'nationalite', 'email',
     'emailUbo', 'numPortable', 'numFixe', 'adresse', 'codePostal', 'ville', 'paysOrigine', 'universiteOrigine',
@@ -35,7 +57,12 @@ export class EtudiantFormComponent implements OnInit {
 
   ) {
     this.etudiant = new Etudiant();
-
+    this.myPromotion = EtudiantFormComponent.promotion;
+    console.log(this.myPromotion);
+    if(EtudiantFormComponent.promotion == null){
+      this.router.navigateByUrl('/Promotion');
+      return;
+    }
     domaine.getPays().subscribe((data) => {
       this.pays = data;
     });
@@ -68,35 +95,46 @@ export class EtudiantFormComponent implements OnInit {
     universiteOrigine: new FormControl(),
     groupeTp: new FormControl(),
     groupeAnglais: new FormControl(),
-    promotion: new FormControl()
-
-
-
 
   })
   submit(): void {
+    for(let m of this.messages){
+      m.exists = false;
+    }
+    this.error = false;
     (document.querySelector('#dateNaissance') as HTMLInputElement).style.borderColor = '';
+    (document.querySelector('#groupeTp') as HTMLInputElement).style.borderColor = '';
+    (document.querySelector('#groupeAnglais') as HTMLInputElement).style.borderColor = '';
     for (let i = 0; i < this.fields.length; i++) {      
       if (( this.isNotNullable[i] && (this.myForm.controls[this.fields[i]].value == null || this.myForm.controls[this.fields[i]].value == '')) ||
         ( this.sizes[i] > 0 && this.myForm.controls[this.fields[i]].value!=null && this.myForm.controls[this.fields[i]].value.length > this.sizes[i])) {
         this.error = true;
         (document.querySelector('#'+this.fields[i]) as HTMLInputElement).style.borderColor = 'red';
         if (( this.isNotNullable[i] && (this.myForm.controls[this.fields[i]].value == null || this.myForm.controls[this.fields[i]].value == ''))) {
-          this.message = "un ou plusieur champ sont vides";
+          this.messages[0].exists=true;
         } else {
-          this.message = "un ou plusieur champ sont remplis par des valeurs trop longues (maixmum 16 caractères)";
+          this.messages[1].exists=true;
         }
       } else {
         (document.querySelector('#'+this.fields[i]) as HTMLInputElement).style.borderColor = '';
       }
     }
-    if (this.error){
-      return;
-    }
     if(new Date(this.myForm.controls['dateNaissance'].value).getTime() > new Date().getTime()){
       this.error = true;
-      this.message = "la date est mal remplis";
+      this.messages[2].exists = true;
       (document.querySelector('#dateNaissance') as HTMLInputElement).style.borderColor = 'red';
+    }
+    if(this.myForm.controls['groupeTp'].value!=1 && this.myForm.controls['groupeTp'].value!=2 &&
+      this.myForm.controls['groupeTp'].value!=null && this.myForm.controls['groupeTp'].value!=''){
+      this.error = true;
+      this.messages[3].exists = true;
+      (document.querySelector('#groupeTp') as HTMLInputElement).style.borderColor = 'red';
+    }
+    if(this.myForm.controls['groupeAnglais'].value!=1 && this.myForm.controls['groupeAnglais'].value!=2 &&
+      this.myForm.controls['groupeAnglais'].value!=null && this.myForm.controls['groupeAnglais'].value!=''){
+      this.error = true;
+      this.messages[4].exists = true;
+      (document.querySelector('#groupeAnglais') as HTMLInputElement).style.borderColor = 'red';
     }
     if (this.error){
       return;
@@ -119,24 +157,24 @@ export class EtudiantFormComponent implements OnInit {
       paysOrigine: this.myForm.controls['paysOrigine'].value,
       universiteOrigine: this.myForm.controls['universiteOrigine'].value,
       groupeTp: this.myForm.controls['groupeTp'].value,
-      groupeAnglais: this.myForm.controls['groupeAnglais'].value
+      groupeAnglais: this.myForm.controls['groupeAnglais'].value,
+      promotion : EtudiantFormComponent.promotion
     })
-    console.log(etudiant)
-    this.etudiantService.save(etudiant).subscribe((data) => {
-      this.gotoEtudiantList();
+    this.etudiantService.save(etudiant).subscribe((res) => {
+      if(res == 0){
+        this.router.navigateByUrl('EtudiantsPromotion/'+this.myPromotion.promotionPK.anneeUniversitaire
+        +'/'+this.myPromotion.promotionPK.formation.codeFormation);
+      }else if (res == 1){
+        this.error=true;
+        this.messages[5].exists=true;
+      }else{
+        this.error=true;
+        this.messages[6].exists=true;
+      }
     });
   }
 
-
-
-  gotoEtudiantList() {
-    this.router.navigate(['/Etudiant/etudiants']);
-  }
   ngOnInit() {
 
   }
-
-
-
-
 }

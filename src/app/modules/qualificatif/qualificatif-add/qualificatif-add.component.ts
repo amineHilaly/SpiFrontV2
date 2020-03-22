@@ -11,10 +11,17 @@ import { Router } from '@angular/router';
 })
 export class QualificatifAddComponent implements OnInit {
 
-  message : string ="";
   error : boolean=false;
-  errorMax : boolean=false;
-  errorMin : boolean=false;
+  messages = [{
+    text:"un ou plusieur champ sont vides.",
+    exists:false
+  },{
+    text:"un ou plusieur champ sont remplis par des valeurs trop longues. (maximum 16 caractères)",
+    exists:false
+  },{
+    text:"Erreur de l'insertion.",
+    exists:false
+  }]
   myForm = new FormGroup({
     max:new FormControl(),
     min:new FormControl()
@@ -28,14 +35,16 @@ export class QualificatifAddComponent implements OnInit {
 
   submit() : void{
     this.error=false;
+    for (let m of this.messages){
+      m.exists =false;
+    }
     if(this.myForm.controls['max'].value == null || this.myForm.controls['max'].value == '' || this.myForm.controls['max'].value.length > 16){
       this.error=true;
       (document.querySelector('#max') as HTMLInputElement).style.borderColor = 'red';
       if(this.myForm.controls['max'].value == null || this.myForm.controls['max'].value == ''){
-        this.message = "un ou plusieur champ sont vides";
+        this.messages[0].exists = true;
       }else{
-        this.message = "un ou plusieur champ sont remplis par des valeurs trop longues (maixmum 16 caractères)";
-      }
+        this.messages[1].exists = true;      }
     }else{
       (document.querySelector('#max') as HTMLInputElement).style.borderColor = '';
     }
@@ -44,9 +53,9 @@ export class QualificatifAddComponent implements OnInit {
       this.error=true;
       (document.querySelector('#min') as HTMLInputElement).style.borderColor = 'red';
       if(this.myForm.controls['min'].value == null || this.myForm.controls['min'].value == '' ){
-        this.message = "un ou plusieur champ sont vides";
+        this.messages[0].exists = true;
       }else{
-        this.message = "un ou plusieur champ sont remplis par des valeurs trop longues (maixmum 16 caractères)";
+        this.messages[1].exists = true;
       }
     }else{
       (document.querySelector('#min') as HTMLInputElement).style.borderColor = '';
@@ -66,7 +75,7 @@ export class QualificatifAddComponent implements OnInit {
           this.router.navigateByUrl('/Qualificatif');
         }else{
           this.error = true;
-          this.message = "erreur coté serveur";
+          this.messages[2].exists =true;
         }
       }
     );

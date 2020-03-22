@@ -5,6 +5,8 @@ import { EtudiantService } from '../../../service/etudiant.service';
 import { EtudiantDetailComponent } from '../../etudiant/etudiant-detail/etudiant-detail.component';
 import { DomaineService } from 'src/app/service/domaine.service';
 import { Observable } from 'rxjs';
+import { EtudiantUpdateComponent } from '../etudiant-update/etudiant-update.component';
+import { EtudiantFormComponent } from '../etudiant-form/etudiant-form.component';
 @Component({
   selector: 'app-etudiants-promotion',
   templateUrl: './etudiants-promotion.component.html',
@@ -14,14 +16,29 @@ export class EtudiantsPromotionComponent implements OnInit {
 
   public  etudiants :any;
   public promotion:any;
+<<<<<<< HEAD
   
   constructor(private prmotionService: PromotionService, private etudiantService: EtudiantService, private domaineService: DomaineService, private router:ActivatedRoute){
+=======
+  page;
+  pageNumber = 1;
+  pagesRange = [];
+  numberOfPages;
+  numberOfElements = 5;
+  pageable;
+
+  constructor(private prmotionService: PromotionService, private etudiantService: EtudiantService, private domaineService: DomaineService,private theRouter:Router, private router:ActivatedRoute){
+>>>>>>> 87bbf119c289f18e43ac760e7f648bebc97c0209
     
     let annee = this.router.snapshot.paramMap.get('annee');
     let codeformation = this.router.snapshot.paramMap.get('codeformation');
     console.log(annee+" "+codeformation);
     this.getPromotion(annee,codeformation);
     this.getEtudiants(annee,codeformation);
+  }
+
+  private getPage() {
+    this.page = this.etudiants.slice((this.pageNumber - 1) * this.numberOfElements, this.pageNumber  * this.numberOfElements);
   }
 
   ngOnInit() {
@@ -51,7 +68,6 @@ export class EtudiantsPromotionComponent implements OnInit {
      console.log(err)
    })
       
-      
     
   }
 
@@ -75,9 +91,96 @@ export class EtudiantsPromotionComponent implements OnInit {
           //console.log(this.etudiant);
           this.etudiants=data;
           console.log(this.etudiants);
+          this.numberOfPages = Math.floor(this.etudiants.length/this.numberOfElements);
+        if((this.etudiants.length % this.numberOfElements) != 0){
+          this.numberOfPages++;
+        }
+        for(let i = 1  ; i < this.numberOfPages ; i++  ){
+          this.pagesRange.push(i+1);
+        }
+        if(this.numberOfPages == 1){
+          this.pageable= false;
+        }else{
+          this.pageable= true;
+        }
+        this.getPage();
     },err=>{
       console.log(err)
     })
+  }
+
+
+  change(i){
+    this.pageNumber = i;
+    this.getPage();
+    this.setSelected();
+  }
+
+  previous(){
+    if(this.pageNumber > 1){
+      this.pageNumber--;
+      this.getPage()
+      this.setSelected();
+    }
+  }
+
+  next(){
+    if(this.pageNumber < this.numberOfPages){
+      this.pageNumber++;
+      this.getPage()
+      this.setSelected();
+    }
+  }
+
+  setSelected(){
+    (document.querySelector('#li'+this.pageNumber) as HTMLLIElement).classList.add("active");
+    let allPages = this.pagesRange.concat([1]);
+    console.log(allPages);
+    console.log(this.pagesRange);
+    for(let i of allPages){
+      if(i != this.pageNumber){
+        (document.querySelector('#li'+i) as HTMLLIElement).classList.remove("active");
+      }
+    }
+  }
+
+
+  updateEtudiant(noEtudiant) {
+    let etudiant: any;
+    this.etudiantService.detail(noEtudiant).subscribe((data) => {
+      etudiant = data;
+      EtudiantUpdateComponent.etudiant = data;
+      EtudiantUpdateComponent.promotion = this.promotion;
+      this.domaineService.getPays().subscribe((pays) => {
+        EtudiantUpdateComponent.pays = pays;
+        this.domaineService.getUniversites().subscribe((univs) => {
+          EtudiantUpdateComponent.univOrigin = univs;
+          EtudiantUpdateComponent.promotion = this.promotion;
+          this.theRouter.navigateByUrl("Etudiant/update");
+        })
+      })
+
+    })
+  }
+
+  showEtudiant(noEtudiant) {
+    let etudiant: any;
+    this.etudiantService.detail(noEtudiant).subscribe((data) => {
+      etudiant = data;
+      EtudiantDetailComponent.etudiant = data;
+      this.domaineService.getPays().subscribe((pays) => {
+        EtudiantDetailComponent.pays = pays;
+        this.domaineService.getUniversites().subscribe((univs) =>{
+          EtudiantDetailComponent.univs = univs;
+          this.theRouter.navigateByUrl("Etudiant/detail");
+        })
+      })
+    })
+  }
+
+  addEtudiant(){
+    EtudiantFormComponent.promotion = this.promotion;
+    this.theRouter.navigateByUrl("Etudiant/Add");
   }
 
 }

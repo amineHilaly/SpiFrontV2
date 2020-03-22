@@ -15,6 +15,7 @@ export class EtudiantDetailComponent implements OnInit {
   public static etudiant: any;
   private myForm: FormGroup;
   public static pays: any;
+  public static univs;
   numeroEtudiant: any;
       nom: any;
       prenom: any;
@@ -34,7 +35,7 @@ export class EtudiantDetailComponent implements OnInit {
       groupeTp: any;
       groupeAnglais: any;
       promotion: any;
-  constructor(private etudiantService: EtudiantService, public datepipe: DatePipe, private router: Router, private route: ActivatedRoute) {
+  constructor(private etudiantService: EtudiantService, public datepipe: DatePipe, private router: Router, ) {
     if(EtudiantDetailComponent.etudiant == undefined){
       router.navigateByUrl('/Promotion')
       return;
@@ -58,13 +59,12 @@ export class EtudiantDetailComponent implements OnInit {
       universiteOrigine: new FormControl(),
       groupeTp: new FormControl(),
       groupeAnglais: new FormControl(),
-      promotion: new FormControl()
     })
     this.numeroEtudiant= EtudiantDetailComponent.etudiant['noEtudiant'];
     this.nom= EtudiantDetailComponent.etudiant['nom'];
     this. prenom= EtudiantDetailComponent.etudiant['prenom'];
-    this. sex= EtudiantDetailComponent.etudiant['sexe']=="F"? "Féminin" : "Masculin";
-    this. dateNaissance= this.datepipe.transform(new Date(EtudiantDetailComponent.etudiant['dateNaissance']), 'dd/MM/yyyy');
+    this. sex= EtudiantDetailComponent.etudiant['sexe']=="F"? "Madame" : "Monsieur";
+    this. dateNaissance= this.datepipe.transform(new Date(EtudiantDetailComponent.etudiant['dateNaissance']), 'dd/MM/yyyy');    
     this. lieuNaissance= EtudiantDetailComponent.etudiant['lieuNaissance'];
     this. nationalite= EtudiantDetailComponent.etudiant['nationalite'];
     this. email= EtudiantDetailComponent.etudiant['email'];
@@ -75,13 +75,10 @@ export class EtudiantDetailComponent implements OnInit {
     this. codePostal= EtudiantDetailComponent.etudiant['codePostal'];
     this. ville= EtudiantDetailComponent.etudiant['ville'];
     this. paysOrigine= EtudiantDetailComponent.etudiant['paysOrigine'];
-    this. paysOrigine= EtudiantDetailComponent.pays.find(p=> p.code = EtudiantDetailComponent.etudiant['paysOrigine']).signification;
-    this. universiteOrigine= EtudiantDetailComponent.etudiant['universiteOrigine'];
+    this. paysOrigine= EtudiantDetailComponent.pays.find(p=> p.code == EtudiantDetailComponent.etudiant['paysOrigine']).signification;
+    this. universiteOrigine= EtudiantDetailComponent.univs.find( u => u.code == EtudiantDetailComponent.etudiant['universiteOrigine']).signification;
     this. groupeTp= EtudiantDetailComponent.etudiant['groupeTp'];
     this. groupeAnglais= EtudiantDetailComponent.etudiant['groupeAnglais'];
-    this. promotion= EtudiantDetailComponent.etudiant['promotion']['promotionPK']['anneeUniversitaire'] + ' ' + EtudiantDetailComponent.etudiant['promotion']['promotionPK']['formation']['codeFormation'];
-    console.log(EtudiantDetailComponent.etudiant);
-    
   }
   ngOnInit() {
   }

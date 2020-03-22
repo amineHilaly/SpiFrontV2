@@ -18,9 +18,13 @@ import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etud
 import { DatePipe } from '@angular/common';
 import { ConfirmationComponent } from './modules/extra/confirmation/confirmation.component';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
+<<<<<<< HEAD
 import { QuestionComponent } from './modules//question/question/question.component';
 import { AddQuestionComponent } from './modules/question/add-question/add-question.component';
 import { UpdateQuestionComponent } from './modules/question/update-question/update-question.component';
+=======
+import { MatIconModule } from '@angular/material';
+>>>>>>> 87bbf119c289f18e43ac760e7f648bebc97c0209
 
 
 @NgModule({
@@ -48,7 +52,8 @@ import { UpdateQuestionComponent } from './modules/question/update-question/upda
     BrowserAnimationsModule,
     DefaultModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [EtudiantService, DatePipe],
   bootstrap: [AppComponent]

@@ -54,11 +54,11 @@ const routes: Routes = [{
     component: EtudiantFormComponent }
     ,
 
-  { path: 'Etudiant/detail/:noEtu', 
+  { path: 'Etudiant/detail', 
     component: EtudiantDetailComponent }
     ,
 
-  { path: 'Etudiant/modif', 
+  { path: 'Etudiant/update', 
     component: EtudiantUpdateComponent }
   ,{
     path: '',
