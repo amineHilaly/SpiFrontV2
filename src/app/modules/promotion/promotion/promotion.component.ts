@@ -80,7 +80,7 @@ export class PromotionComponent implements OnInit {
 
 
   RederectionEtudiants(promotionParam){
-    EtudiantsPromotionComponent.promotion=promotionParam;
+    //EtudiantsPromotionComponent.promotion=promotionParam;
     this.router.navigateByUrl("EtudiantsPromotion/"+promotionParam.promotionPK.anneeUniversitaire+"/"+promotionParam.promotionPK.formation.codeFormation);
   }
 }
