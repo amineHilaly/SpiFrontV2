@@ -13,10 +13,9 @@ import { Observable } from 'rxjs';
 export class EtudiantsPromotionComponent implements OnInit {
 
   public  etudiants :any;
-  public myEtudiants:any;
   public promotion:any;
   
-  constructor(private prmotionService: PromotionService, private etudiantService: EtudiantService, private domaineService: DomaineService,private activatedRoute:ActivatedRoute, private router:ActivatedRoute){
+  constructor(private prmotionService: PromotionService, private etudiantService: EtudiantService, private domaineService: DomaineService, private router:ActivatedRoute){
     
     let annee = this.router.snapshot.paramMap.get('annee');
     let codeformation = this.router.snapshot.paramMap.get('codeformation');

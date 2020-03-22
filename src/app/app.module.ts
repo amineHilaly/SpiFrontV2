@@ -18,6 +18,9 @@ import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etud
 import { DatePipe } from '@angular/common';
 import { ConfirmationComponent } from './modules/extra/confirmation/confirmation.component';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
+import { QuestionComponent } from './modules//question/question/question.component';
+import { AddQuestionComponent } from './modules/question/add-question/add-question.component';
+import { UpdateQuestionComponent } from './modules/question/update-question/update-question.component';
 
 
 @NgModule({
@@ -33,6 +36,9 @@ import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promot
     EtudiantDetailComponent,
     ConfirmationComponent,
     EtudiantsPromotionComponent,
+    QuestionComponent,
+    AddQuestionComponent,
+    UpdateQuestionComponent,
     
   ],
   entryComponents: [DialogInfoComponent, ConfirmationComponent],

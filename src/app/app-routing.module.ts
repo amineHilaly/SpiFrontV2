@@ -13,6 +13,7 @@ import { EtudiantDetailComponent } from './modules/etudiant/etudiant-detail/etud
 import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etudiant-update.component';
 import { from } from 'rxjs';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
+import { QuestionComponent } from './modules/question/question/question.component';
 
 
 
@@ -31,6 +32,9 @@ const routes: Routes = [{
   }, {
     path: 'EtudiantsPromotion/:annee/:codeformation',
     component: EtudiantsPromotionComponent
+  },{
+    path: 'Question',
+    component: QuestionComponent
   },{
     path: 'Qualificatif',
     component: QualificatifComponent
