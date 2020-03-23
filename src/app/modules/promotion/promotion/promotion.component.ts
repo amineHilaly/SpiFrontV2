@@ -93,11 +93,6 @@ export class PromotionComponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD
-  RederectionEtudiants(promotionParam){
-    //EtudiantsPromotionComponent.promotion=promotionParam;
-    this.router.navigateByUrl("EtudiantsPromotion/"+promotionParam.promotionPK.anneeUniversitaire+"/"+promotionParam.promotionPK.formation.codeFormation);
-=======
   setSelected(){
     (document.querySelector('#li'+this.pageNumber) as HTMLLIElement).classList.add("active");
     let allPages = this.pagesRange.concat([1]);
@@ -108,6 +103,5 @@ export class PromotionComponent implements OnInit {
         (document.querySelector('#li'+i) as HTMLLIElement).classList.remove("active");
       }
     }
->>>>>>> 87bbf119c289f18e43ac760e7f648bebc97c0209
   }
 }
