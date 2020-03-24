@@ -14,6 +14,8 @@ import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etud
 import { from } from 'rxjs';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
 import { QuestionComponent } from './modules/question/question/question.component';
+import { RubriqueComponent } from './modules/Rubriques/rubrique/rubrique.component';
+import { RubriqueAddComponent } from './modules/Rubriques/rubrique-add/rubrique-add.component';
 
 
 
@@ -60,8 +62,15 @@ const routes: Routes = [{
 
   { path: 'Etudiant/update', 
     component: EtudiantUpdateComponent }
-  ,{
-    path: '',
+  ,
+
+  { path: 'Rubriques', 
+  component: RubriqueComponent }
+  ,
+  { path: 'Rubriques/Add', 
+  component: RubriqueAddComponent }
+  ,
+  { path: '',
     component: HomeComponent
   }]
 }];

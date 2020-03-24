@@ -22,6 +22,9 @@ import { QuestionComponent } from './modules//question/question/question.compone
 import { AddQuestionComponent } from './modules/question/add-question/add-question.component';
 import { UpdateQuestionComponent } from './modules/question/update-question/update-question.component';
 import { MatIconModule } from '@angular/material';
+import { RubriqueComponent } from './modules/Rubriques/rubrique/rubrique.component';
+import { ConfirmationRubriqueComponent } from './modules/extra/confirmation-rubrique/confirmation-rubrique.component';
+import { RubriqueAddComponent } from './modules/Rubriques/rubrique-add/rubrique-add.component';
 
 
 @NgModule({
@@ -40,9 +43,12 @@ import { MatIconModule } from '@angular/material';
     QuestionComponent,
     AddQuestionComponent,
     UpdateQuestionComponent,
+    RubriqueComponent,
+    ConfirmationRubriqueComponent,
+    RubriqueAddComponent,
     
   ],
-  entryComponents: [DialogInfoComponent, ConfirmationComponent],
+  entryComponents: [DialogInfoComponent, ConfirmationComponent,ConfirmationRubriqueComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
