@@ -1,0 +1,55 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div class="container" style="background-color: white; height: inherit;">
+  <h2>Liste de questions Standards </h2>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Intitule</th>
+          <th style="width: 25%;">Qualificatif Minimal	</th>
+          <th style="width: 25%;">Qualificatif Maximal</th>
+          <th style="width: 35%;"><button class="btn btn-success col-xs-8" mat-icon-button
+              onclick="window.location.href = 'http://localhost:4200/Questions/add';">
+              <mat-icon>add</mat-icon>
+            </button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let question of page;">
+          <td>{{question.intitule}}</td>
+                <td>{{question.qualificatif.minimal}}</td>
+                <td>{{question.qualificatif.maximal}}</td>
+          <td>
+  
+            <button mat-icon-button class="btn btn-secondary" style="margin-right: 9px;" (click)="update(question)">
+              <mat-icon>create</mat-icon>
+            </button>
+            <button mat-icon-button class="btn btn-danger" style="margin-right: 9px;" (click)="delete(question.idQuestion)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <nav *ngIf="pageable" aria-label="Page navigation example col-md-6">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" (click)="previous()">&lt;&lt;</a></li>
+        <li class="page-item active" id="li1"><a class="page-link" (click)="change(1)">1</a></li>
+        <li class="page-item" *ngFor=" let i of pagesRange" id="li{{i}}"><a class="page-link"
+            (click)="change(i)">{{i}}</a></li>
+        <li class="page-item"><a class="page-link" (click)="next()">&gt;&gt;</a></li>
+      </ul>
+    </nav>
+  </div>
+  </body>
+  

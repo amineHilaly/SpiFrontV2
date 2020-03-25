@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionService } from 'src/app/service/question.service';
 import { ActivatedRoute } from '@angular/router';
 
+
+
+
+
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',

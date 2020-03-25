@@ -18,13 +18,14 @@ import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etud
 import { DatePipe } from '@angular/common';
 import { ConfirmationComponent } from './modules/extra/confirmation/confirmation.component';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
-<<<<<<< HEAD
 import { QuestionComponent } from './modules//question/question/question.component';
 import { AddQuestionComponent } from './modules/question/add-question/add-question.component';
 import { UpdateQuestionComponent } from './modules/question/update-question/update-question.component';
-=======
 import { MatIconModule } from '@angular/material';
->>>>>>> 87bbf119c289f18e43ac760e7f648bebc97c0209
+import { AddCComponent } from './modules/questions/add/add-c/add-c.component';
+import { ListCComponent } from './modules/questions/list/list-c/list-c.component';
+import { UpdateCComponent } from './modules/questions/update/update-c/update-c.component';
+import { ConfirmComponent } from './modules/extra/confirmQuestion/confirm/confirm.component';
 
 
 @NgModule({
@@ -43,9 +44,13 @@ import { MatIconModule } from '@angular/material';
     QuestionComponent,
     AddQuestionComponent,
     UpdateQuestionComponent,
+    AddCComponent,
+    ListCComponent,
+    UpdateCComponent,
+    ConfirmComponent,
     
   ],
-  entryComponents: [DialogInfoComponent, ConfirmationComponent],
+  entryComponents: [DialogInfoComponent, ConfirmationComponent,ConfirmComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

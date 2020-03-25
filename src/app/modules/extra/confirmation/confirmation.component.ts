@@ -1,7 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { QualificatifService } from 'src/app/service/qualificatif.service';
+import { QuestionService } from 'src/app/service/question.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
+import { ListCComponent } from '../../questions/list/list-c/list-c.component';
 import { QualificatifComponent } from '../../qualificatif/qualificatif/qualificatif.component';
 
 @Component({
@@ -28,9 +30,13 @@ export class ConfirmationComponent implements OnInit {
 
   delete() {
     if (this.data.entity = "Qualificatif") {
+      console.log("dkhelt fuck");
+
       let  id = this.data.id;
+      console.log(id);
       let service : QualificatifService= this.data.service;
       let father : QualificatifComponent= this.data.father;
+
       service.delete(id).subscribe((res)=>{
         if (res) {
           this.router.navigateByUrl('/Qualificatif');
@@ -40,8 +46,6 @@ export class ConfirmationComponent implements OnInit {
           this.error = true;
         }
       });
-    } else {
-
-    }
+    } 
   }
 }

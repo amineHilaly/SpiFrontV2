@@ -16,10 +16,6 @@ export class EtudiantsPromotionComponent implements OnInit {
 
   public  etudiants :any;
   public promotion:any;
-<<<<<<< HEAD
-  
-  constructor(private prmotionService: PromotionService, private etudiantService: EtudiantService, private domaineService: DomaineService, private router:ActivatedRoute){
-=======
   page;
   pageNumber = 1;
   pagesRange = [];
@@ -28,7 +24,6 @@ export class EtudiantsPromotionComponent implements OnInit {
   pageable;
 
   constructor(private prmotionService: PromotionService, private etudiantService: EtudiantService, private domaineService: DomaineService,private theRouter:Router, private router:ActivatedRoute){
->>>>>>> 87bbf119c289f18e43ac760e7f648bebc97c0209
     
     let annee = this.router.snapshot.paramMap.get('annee');
     let codeformation = this.router.snapshot.paramMap.get('codeformation');

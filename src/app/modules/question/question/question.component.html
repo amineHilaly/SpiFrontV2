@@ -26,10 +26,10 @@
                 <td>{{question.type}}</td>
                 <td>{{question.qualificatif.minimal}}</td>
                 <td>{{question.qualificatif.maximal}}</td>
-                <td><button mat-icon-button class="btn btn-info" style="margin-right: 9px;" (click)="update(q)">
+                <td><button mat-icon-button class="btn btn-info" style="margin-right: 9px;" (click)="update(question)">
                         Modifier
                     </button>
-                    <button mat-icon-button class="btn btn-danger" style="margin-right: 9px;" (click)="delete(q.idQualificatif)">
+                    <button mat-icon-button class="btn btn-danger" style="margin-right: 9px;" (click)="delete(question.idQuestion)">
                         Supprimer
                     </button></td>
             </tr>

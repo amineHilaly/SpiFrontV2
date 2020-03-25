@@ -16,7 +16,7 @@ export class QualificatifAddComponent implements OnInit {
     text:"un ou plusieur champ sont vides.",
     exists:false
   },{
-    text:"un ou plusieur champ sont remplis par des valeurs trop longues. (maximum 16 caractères)",
+    text:"un ou plusieurs champs sont remplis par des valeurs trop longues. (maximum 16 caractères)",
     exists:false
   },{
     text:"Erreur de l'insertion.",
