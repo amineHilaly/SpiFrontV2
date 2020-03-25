@@ -8,6 +8,11 @@ import { DialogInfoComponent } from './modules/dialog-info/dialog-info.component
 import { QualificatifAddComponent } from './modules/qualificatif/qualificatif-add/qualificatif-add.component';
 import { QualificatifUpdateComponent } from './modules/qualificatif/qualificatif-update/qualificatif-update.component';
 import { EtudiantListComponent } from './modules/etudiant/etudiant-list/etudiant-list.component';
+
+import { EvaluationListComponent } from './modules/evaluation/evaluation-list/evaluation-list.component';
+import { EvaluationAddComponent } from './modules/evaluation/evaluation-add/evaluation-add.component';
+
+
 import { EtudiantFormComponent } from './modules/etudiant/etudiant-form/etudiant-form.component';
 import { EtudiantDetailComponent } from './modules/etudiant/etudiant-detail/etudiant-detail.component';
 import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etudiant-update.component';
@@ -50,8 +55,15 @@ const routes: Routes = [{
   { path: 'Etudiant', 
     component: EtudiantListComponent },
 
+  { path: 'Evaluation', 
+    component: EvaluationListComponent },
+
   { path: 'Etudiant/Add', 
     component: EtudiantFormComponent }
+    ,
+
+    { path: 'Evaluation/add', 
+    component: EvaluationAddComponent }
     ,
 
   { path: 'Etudiant/detail', 

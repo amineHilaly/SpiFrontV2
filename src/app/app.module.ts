@@ -22,7 +22,11 @@ import { QuestionComponent } from './modules//question/question/question.compone
 import { AddQuestionComponent } from './modules/question/add-question/add-question.component';
 import { UpdateQuestionComponent } from './modules/question/update-question/update-question.component';
 import { MatIconModule } from '@angular/material';
-
+import { EvaluationListComponent } from './modules/evaluation/evaluation-list/evaluation-list.component';
+import { EvaluationAddComponent } from './modules/evaluation/evaluation-add/evaluation-add.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr')
 
 @NgModule({
   declarations: [
@@ -40,6 +44,8 @@ import { MatIconModule } from '@angular/material';
     QuestionComponent,
     AddQuestionComponent,
     UpdateQuestionComponent,
+    EvaluationListComponent,
+    EvaluationAddComponent,
     
   ],
   entryComponents: [DialogInfoComponent, ConfirmationComponent],
