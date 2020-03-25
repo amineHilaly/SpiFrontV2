@@ -56,7 +56,6 @@ export class UpdateCComponent implements OnInit {
     this.myForm = new FormGroup({
       intitule: new FormControl(),
       type: new FormControl(),
-      noEnseignant: new FormControl(),
       qualificatif: new FormControl(),
       min: new FormControl(),
       max: new FormControl()
@@ -64,7 +63,6 @@ export class UpdateCComponent implements OnInit {
     this.intitule = UpdateCComponent.question['intitule'];
     console.log(UpdateCComponent.question);
     this.type = UpdateCComponent.question['type'];
-    this.noEnseignant = "Philippe Saliou";
     this.qualificatif = UpdateCComponent.question['qualificatif'];
     this.max = this.qualificatif['max'];
     this.min = this.qualificatif['min'];

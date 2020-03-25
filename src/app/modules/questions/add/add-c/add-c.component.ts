@@ -28,7 +28,6 @@ export class AddCComponent implements OnInit {
   myForm = new FormGroup({
     intitule:new FormControl(),
     type:new FormControl(),
-    noEnseignant:new FormControl(),
     qualificatif:new FormControl(),
     min:new FormControl(),
     max:new FormControl()

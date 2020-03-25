@@ -18,9 +18,6 @@ import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etud
 import { DatePipe } from '@angular/common';
 import { ConfirmationComponent } from './modules/extra/confirmation/confirmation.component';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
-import { QuestionComponent } from './modules//question/question/question.component';
-import { AddQuestionComponent } from './modules/question/add-question/add-question.component';
-import { UpdateQuestionComponent } from './modules/question/update-question/update-question.component';
 import { MatIconModule } from '@angular/material';
 import { AddCComponent } from './modules/questions/add/add-c/add-c.component';
 import { ListCComponent } from './modules/questions/list/list-c/list-c.component';
@@ -46,9 +43,6 @@ registerLocaleData(localeFr, 'fr')
     EtudiantDetailComponent,
     ConfirmationComponent,
     EtudiantsPromotionComponent,
-    QuestionComponent,
-    AddQuestionComponent,
-    UpdateQuestionComponent,
     AddCComponent,
     ListCComponent,
     UpdateCComponent,

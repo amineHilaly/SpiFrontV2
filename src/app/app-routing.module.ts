@@ -18,7 +18,6 @@ import { EtudiantDetailComponent } from './modules/etudiant/etudiant-detail/etud
 import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etudiant-update.component';
 import { from } from 'rxjs';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
-import { QuestionComponent } from './modules/question/question/question.component';
 import { ListCComponent } from './modules/questions/list/list-c/list-c.component';
 import { AddCComponent } from './modules/questions/add/add-c/add-c.component';
 import { UpdateCComponent } from './modules/questions/update/update-c/update-c.component';
@@ -40,9 +39,6 @@ const routes: Routes = [{
   }, {
     path: 'EtudiantsPromotion/:annee/:codeformation',
     component: EtudiantsPromotionComponent
-  },{
-    path: 'Question',
-    component: QuestionComponent
   },{
     path: 'Qualificatif',
     component: QualificatifComponent
