@@ -39,15 +39,16 @@ export class RubriqueService {
     return this.http.post(this.endpoint, object, options);
   }
 
-  update(body: { idQualificatif: string; maximal: any; minimal: any; }): Observable<any> {
+  update(body: { idRubrique: any; designation: any; ordre: any; type: any; }): Observable<any> {
     let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
     });
     let options = {
       headers: headers
     }
     console.log(body);
-    return this.http.put(this.endpoint, body, options);
+    return this.http.post(this.endpoint +'/update', body, options);
   }
 }
 

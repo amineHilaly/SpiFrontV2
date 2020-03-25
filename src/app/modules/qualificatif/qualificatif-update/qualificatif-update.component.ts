@@ -29,7 +29,9 @@ export class QualificatifUpdateComponent implements OnInit {
     this.myForm = new FormGroup({
       max: new FormControl(this.qualificatif['max']),
       min: new FormControl(this.qualificatif['min'])
+      
     });
+    console.log(this.myForm);
 
   }
 
@@ -72,6 +74,7 @@ export class QualificatifUpdateComponent implements OnInit {
       maximal: this.myForm.controls['max'].value,
       minimal: this.myForm.controls['min'].value
     }
+    console.log(body);
     alert("sending");
     this.qualificatifService.update(body).subscribe(
       (res: boolean) => {

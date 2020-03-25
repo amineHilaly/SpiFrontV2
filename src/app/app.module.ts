@@ -25,6 +25,7 @@ import { MatIconModule } from '@angular/material';
 import { RubriqueComponent } from './modules/Rubriques/rubrique/rubrique.component';
 import { ConfirmationRubriqueComponent } from './modules/extra/confirmation-rubrique/confirmation-rubrique.component';
 import { RubriqueAddComponent } from './modules/Rubriques/rubrique-add/rubrique-add.component';
+import { RubriqueUpdateComponent } from './modules/Rubriques/rubrique-update/rubrique-update.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { RubriqueAddComponent } from './modules/Rubriques/rubrique-add/rubrique-
     RubriqueComponent,
     ConfirmationRubriqueComponent,
     RubriqueAddComponent,
+    RubriqueUpdateComponent,
     
   ],
   entryComponents: [DialogInfoComponent, ConfirmationComponent,ConfirmationRubriqueComponent],

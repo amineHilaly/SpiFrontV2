@@ -18,7 +18,7 @@ export class RubriqueAddComponent implements OnInit {
 
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
+      this.registerForm = this.formBuilder.group({
       designation: ['', [Validators.required, Validators.maxLength(16)]],
       ordre: ['', [Validators.required, Validators.min(1), Validators.max(99)]],
       type: ['', Validators.required],
@@ -51,7 +51,6 @@ export class RubriqueAddComponent implements OnInit {
       this.rubriqueService.create(body).subscribe(
         (res: boolean) => {
           if (res) {
-            console.log("test");
             this.router.navigateByUrl('/Rubriques');
           }else{
           }

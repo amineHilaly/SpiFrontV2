@@ -16,6 +16,7 @@ import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promot
 import { QuestionComponent } from './modules/question/question/question.component';
 import { RubriqueComponent } from './modules/Rubriques/rubrique/rubrique.component';
 import { RubriqueAddComponent } from './modules/Rubriques/rubrique-add/rubrique-add.component';
+import { RubriqueUpdateComponent } from './modules/Rubriques/rubrique-update/rubrique-update.component';
 
 
 
@@ -69,6 +70,9 @@ const routes: Routes = [{
   ,
   { path: 'Rubriques/Add', 
   component: RubriqueAddComponent }
+  ,
+  { path: 'Rubriques/Update/:id/:designation/:ordre/:type', 
+  component: RubriqueUpdateComponent }
   ,
   { path: '',
     component: HomeComponent

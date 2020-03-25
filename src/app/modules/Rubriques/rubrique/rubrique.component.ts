@@ -101,7 +101,7 @@ export class RubriqueComponent implements OnInit {
   }
  
   update(rubrique) : void {
-    
+    this.router.navigateByUrl('/Rubriques/Update/'+rubrique['idRubrique']+'/'+rubrique['designation']+'/'+rubrique['ordre']+'/'+rubrique['type']);
   }
 
 }
