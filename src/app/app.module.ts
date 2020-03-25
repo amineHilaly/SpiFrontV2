@@ -27,6 +27,11 @@ import { ListCComponent } from './modules/questions/list/list-c/list-c.component
 import { UpdateCComponent } from './modules/questions/update/update-c/update-c.component';
 import { ConfirmComponent } from './modules/extra/confirmQuestion/confirm/confirm.component';
 
+import { EvaluationListComponent } from './modules/evaluation/evaluation-list/evaluation-list.component';
+import { EvaluationAddComponent } from './modules/evaluation/evaluation-add/evaluation-add.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr')
 
 @NgModule({
   declarations: [
@@ -48,6 +53,8 @@ import { ConfirmComponent } from './modules/extra/confirmQuestion/confirm/confir
     ListCComponent,
     UpdateCComponent,
     ConfirmComponent,
+    EvaluationListComponent,
+    EvaluationAddComponent,
     
   ],
   entryComponents: [DialogInfoComponent, ConfirmationComponent,ConfirmComponent],

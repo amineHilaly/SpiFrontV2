@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://use.fontawesome.com/47b33d33da.js"></script>
+
+
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
+    integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
+    crossorigin="anonymous"></script>
+</head>
+
+<body style="height: fit-content;">
+  <div class="container" style=" width: inherit; ">
+    <div style=" border-bottom: 1px solid #aaa; margin-bottom: 15px; margin-left: auto; margin-right: auto;">
+      <h3>Ajouter une evaluation : </h3>
+    </div>
+    <form class="well form-horizontal" [formGroup]="myForm">
+      <fieldset>
+
+        <!-- Form Name -->
+
+        <!-- Text input-->
+        <div style=" border-bottom: 1px solid #aaa; margin-bottom: 15px;">
+          <h4>Informations d'une evaluation</h4>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label class="col-md-4 control-label">Désignation</label>
+            <div class="col-md-7 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-paperclip"></i></span>
+                <input name="designation" formControlName="designation" id="nom" ng-model="designation" required placeholder="Désignation"
+                  class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+
+
+          
+
+          <div class="form-group col-md-6">
+            <label class="col-md-4 control-label">Formation</label>
+            <div class="col-md-7 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
+                <input name="codeFormation" formControlName="codeFormation" id="codeFormation" placeholder="Code formation" class="form-control"
+                  type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- Text input-->
+
+          <div class="form-group col-md-6">
+            <label class="col-md-4 control-label">Etat</label>
+            <div class="col-md-7 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                <input name="etat" formControlName="etat" id="etat"
+                  placeholder="Etat" class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- Text input-->
+
+          <div class="form-group col-md-6">
+            <label class="col-md-4 control-label">Période</label>
+            <div class="col-md-7 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-history"></i></span>
+                <input name="periode" formControlName="periode" id="periode"
+                  placeholder="Période" class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Text input-->
+
+
+
+        <div class="form-row">
+          
+
+          <div class="form-group col-md-6">
+            <label class="col-md-4 control-label">Début réponse</label>
+            <div class="inputGroupContainer col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                <input name="debutReponse" formControlName="debutReponse" id="debutReponse" placeholder="Début réponse"
+                  class="form-control" type="date">
+              </div>
+            </div>
+          </div>
+
+          <!-- Text input-->
+
+
+
+          <div class="form-group col-md-6">
+            <label class="col-md-4 control-label">Fin réponse</label>
+            <div class="inputGroupContainer col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                <input name="finReponse" formControlName="finReponse" id="finReponse" placeholder="Fin réponse"
+                  class="form-control" type="date">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group col-md-6">
+            <label class="col-md-4 control-label">Année universitaire</label>
+            <div class="col-md-7 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                <select name="anneeUniversitaire" formControlName="anneeUniversitaire" id="anneeUniversitaire"
+                  class="form-control selectpicker">
+                  <option hidden>Seléctionner une année</option>
+                  <option *ngFor="let p of ueList " [value]="p.id.codeUe">{{p.id.codeUe}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+                  
+        </div>
+        <!-- Text input-->
+
+
+
+
+
+
+
+        <div class="form-row">
+          
+
+          <!-- Text input-->
+          <div class="form-group col-md-6">
+            <label class="col-md-4 control-label">Unité d'enseignement</label>
+            <div class="col-md-7 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-align-justify"></i></span>
+
+
+                <select name="ue" formControlName="ue" id="ue" placeholder="Unité d'enseignement" 
+                  class="form-control selectpicker">
+                  <option hidden>Seléctionner une unité d'enseignement</option>
+                  <option *ngFor="let p of ueList " [value]="p.id.codeUe">{{p.id.codeUe}}</option>
+                </select>
+
+                
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="form-group col-md-6">
+            <label class="col-md-4 control-label">Element constitutif</label>
+            <div class="col-md-7 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-align-justify"></i></span>
+
+
+                <select name="ec" formControlName="ec" id="ec" placeholder="Element constitutif"
+                  class="form-control selectpicker">
+                  <option hidden>Seléctionner un element</option>
+                  <option *ngFor="let e of ecList " [value]="e.id.codeUe">{{p.id.codeUe}}</option>
+                </select>
+
+              </div>
+            </div>
+          </div>
+          
+        </div>
+ 
+        <!-- Button -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4"><br>
+            <button type="submit" (click)="submit()" class="btn btn-success" id="btn">Ajouter <span
+                class="glyphicon glyphicon-send"></span>
+            </button>
+          </div>
+        </div>
+
+      </fieldset>
+
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+        <ul>
+          <ng-container *ngFor="let m of messages">
+            <ng-container *ngIf="m.exists">
+              <li>{{ m.text }}</li>
+            </ng-container>
+          </ng-container>
+        </ul>
+      </div>
+    </form>
+  </div>
+
+
+</body>
+
+</html>

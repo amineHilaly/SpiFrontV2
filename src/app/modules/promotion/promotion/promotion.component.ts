@@ -71,6 +71,10 @@ export class PromotionComponent implements OnInit {
     this.router.navigateByUrl("EtudiantsPromotion/"+promotionParam.promotionPK.anneeUniversitaire+"/"+promotionParam.promotionPK.formation.codeFormation);
   }
 
+  RederectionEvaluations(){
+    this.router.navigateByUrl("Evaluation");
+  }
+
   change(i){
     this.pageNumber = i;
     this.getPage();

@@ -15,40 +15,41 @@
 <body>
 
   <div class="container" style="background-color: white; height: inherit;">
-    <h2>Liste des promotions</h2>
+    <h2>Liste des evaluations</h2>
+
+    <div class="text-right mb-3">
+    <button type="button" class="btn btn-success" 
+    (click)="RederectionAjout()">Ajouter</button>
+ 
+</div>
     <table class="table">
       <thead>
         <tr>
-          <th>Code</th>
-          <th>Année</th>
-          <th>Sigle</th>
-          <th>Capacité</th>
-          <th></th>
-        </tr>
+        <th>Désignation</th>
+        <th>Code formation</th>
+        <th>Année universitaire</th>
+        <th>Etat</th>
+        <th>Module</th>
+        <th>Élément</th>
+        <th>Période</th>
+        <th>Date début</th>
+        <th>Date fin</th>
+
+      </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let p of page;">
-          <td>{{p.siglePromotion}}</td>
-          <td>{{p.promotionPK.anneeUniversitaire}}</td>
-          <td>{{p.formation.codeFormation}}</td>
-          <td>{{p.nbMaxEtudiant}}</td>
-
-          <td>
-            <!--<<button type="button" class="btn btn-danger" style="margin-right: 9px;" (click)="delete(p.promotionPK)">delete</button>-->
-            <button type="button" class="btn btn-primary" style="margin-right: 9px; height: 40px;"
-              (click)="RederectionEtudiants(p)">
-              <mat-icon>zoom_in</mat-icon>
-            </button>
-
-            
-
-              <button type="button" id="eval" class="btn btn-success" style="margin-right: 9px; height: 40px;"
-                (click)="RederectionEvaluations()"
-              >Evaluations</button>
+        <tr *ngFor="let evaluation of page">
+          <td>{{ evaluation.designation }}</td>
+          <td>{{ evaluation.promotion.formation.codeFormation }}</td>
+          <td>{{ evaluation.promotion.promotionPK.anneeUniversitaire }}</td>
+          <td>{{ evaluation.etat }}</td>
+          <td>{{ evaluation.uniteEnseignement.id.codeUe }}</td>
+          <td>{{ evaluation.elementConstitutif }}</td>
+          <td>{{ evaluation.periode }}</td>
+          <td>{{evaluation.debutReponse | date: 'medium': undefined : 'fr'}}</td>
+          <td>{{evaluation.finReponse | date: 'medium': undefined : 'fr'}}</td>
           
-
-            
-            <!--<<button type="button" class="btn btn-info" style="margin-right: 9px;" >modifier</button></td>-->
+          
         </tr>
 
       </tbody>
