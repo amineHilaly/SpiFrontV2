@@ -19,7 +19,7 @@ export class RubriqueAddComponent implements OnInit {
 
   ngOnInit() {
       this.registerForm = this.formBuilder.group({
-      designation: ['', [Validators.required, Validators.maxLength(16)]],
+      designation: ['', [Validators.required, Validators.maxLength(32)]],
       ordre: ['', [Validators.required, Validators.min(1), Validators.max(99)]],
       type: ['', Validators.required],
   }
