@@ -18,7 +18,7 @@ import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etud
 import { DatePipe } from '@angular/common';
 import { ConfirmationComponent } from './modules/extra/confirmation/confirmation.component';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatTooltip, MatTooltipModule } from '@angular/material';
 import { AddCComponent } from './modules/questions/add/add-c/add-c.component';
 import { ListCComponent } from './modules/questions/list/list-c/list-c.component';
 import { UpdateCComponent } from './modules/questions/update/update-c/update-c.component';
@@ -73,7 +73,8 @@ registerLocaleData(localeFr, 'fr')
     DefaultModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [EtudiantService, DatePipe],
   bootstrap: [AppComponent]

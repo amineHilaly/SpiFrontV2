@@ -44,7 +44,7 @@
           <td>{{ evaluation.promotion.promotionPK.anneeUniversitaire }}</td>
           <td>{{ evaluation.etat }}</td>
           <td>{{ evaluation.uniteEnseignement.id.codeUe }}</td>
-          <td>{{ evaluation.elementConstitutif==null?'':evaluation.elementConstitutif.id.codeEc }}</td>
+          <td>{{ evaluation.elementConstitutif==null?'Sans':evaluation.elementConstitutif.id.codeEc }}</td>
           <td>{{ evaluation.periode }}</td>
           <td>{{evaluation.debutReponse | date: 'medium': undefined : 'fr'}}</td>
           <td>{{evaluation.finReponse | date: 'medium': undefined : 'fr'}}</td>
