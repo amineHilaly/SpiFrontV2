@@ -18,8 +18,8 @@
                     <label>Designation</label>
                     <input type="text" id="Designation" name="Designation" formControlName="designation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.designation.errors }" />
                     <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
-                        <div *ngIf="f.designation.errors.required">Designation est obligatoire</div>
-                        <div *ngIf="f.designation.errors.maxlength">la Desigantion ne doit pas dépasser 16 caractères</div>
+                        <div *ngIf="f.designation.errors.required">la designation est obligatoire</div>
+                        <div *ngIf="f.designation.errors.maxlength">la designation ne doit pas dépasser 16 caractères</div>
                     </div>
                 </div>
                 <div class="form-group col-5">
@@ -46,8 +46,8 @@
             
            
             <div class="text-center">
-                <button class="btn btn-primary mr-1">Register</button>
-                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                <button class="btn btn-primary mr-1">Ajouter</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Réinitialiser</button>
             </div>
         </form>
     </div>
