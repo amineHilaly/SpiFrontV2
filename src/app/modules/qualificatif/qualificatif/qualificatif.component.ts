@@ -40,6 +40,7 @@ export class QualificatifComponent implements OnInit {
         if((this.qualificatifs.length % this.numberOfElements) != 0){
           this.numberOfPages++;
         }
+        this.pagesRange = []
         for(let i = 1  ; i < this.numberOfPages ; i++  ){
           this.pagesRange.push(i+1);
         }
