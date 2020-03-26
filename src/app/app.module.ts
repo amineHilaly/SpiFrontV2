@@ -23,6 +23,10 @@ import { AddCComponent } from './modules/questions/add/add-c/add-c.component';
 import { ListCComponent } from './modules/questions/list/list-c/list-c.component';
 import { UpdateCComponent } from './modules/questions/update/update-c/update-c.component';
 import { ConfirmComponent } from './modules/extra/confirmQuestion/confirm/confirm.component';
+import { RubriqueComponent } from './modules/Rubriques/rubrique/rubrique.component';
+import { ConfirmationRubriqueComponent } from './modules/extra/confirmation-rubrique/confirmation-rubrique.component';
+import { RubriqueAddComponent } from './modules/Rubriques/rubrique-add/rubrique-add.component';
+import { RubriqueUpdateComponent } from './modules/Rubriques/rubrique-update/rubrique-update.component';
 
 import { EvaluationListComponent } from './modules/evaluation/evaluation-list/evaluation-list.component';
 import { EvaluationAddComponent } from './modules/evaluation/evaluation-add/evaluation-add.component';
@@ -43,6 +47,16 @@ registerLocaleData(localeFr, 'fr')
     EtudiantDetailComponent,
     ConfirmationComponent,
     EtudiantsPromotionComponent,
+    RubriqueComponent,
+    ConfirmationRubriqueComponent,
+    RubriqueAddComponent,
+    RubriqueUpdateComponent,
+    AddCComponent,
+    ListCComponent,
+    UpdateCComponent,
+    ConfirmComponent,
+    EvaluationListComponent,
+    EvaluationAddComponent,
     AddCComponent,
     ListCComponent,
     UpdateCComponent,
@@ -51,7 +65,7 @@ registerLocaleData(localeFr, 'fr')
     EvaluationAddComponent,
     
   ],
-  entryComponents: [DialogInfoComponent, ConfirmationComponent,ConfirmComponent],
+  entryComponents: [DialogInfoComponent, ConfirmationComponent,ConfirmationRubriqueComponent,ConfirmComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

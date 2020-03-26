@@ -21,6 +21,9 @@ import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promot
 import { ListCComponent } from './modules/questions/list/list-c/list-c.component';
 import { AddCComponent } from './modules/questions/add/add-c/add-c.component';
 import { UpdateCComponent } from './modules/questions/update/update-c/update-c.component';
+import { RubriqueComponent } from './modules/Rubriques/rubrique/rubrique.component';
+import { RubriqueAddComponent } from './modules/Rubriques/rubrique-add/rubrique-add.component';
+import { RubriqueUpdateComponent } from './modules/Rubriques/rubrique-update/rubrique-update.component';
 
 
 
@@ -83,8 +86,18 @@ const routes: Routes = [{
 
   { path: 'Etudiant/update', 
     component: EtudiantUpdateComponent }
-  ,{
-    path: '',
+  ,
+
+  { path: 'Rubriques', 
+  component: RubriqueComponent }
+  ,
+  { path: 'Rubriques/Add', 
+  component: RubriqueAddComponent }
+  ,
+  { path: 'Rubriques/Update/:id/:designation/:ordre/:type', 
+  component: RubriqueUpdateComponent }
+  ,
+  { path: '',
     component: HomeComponent
   }]
 }];
