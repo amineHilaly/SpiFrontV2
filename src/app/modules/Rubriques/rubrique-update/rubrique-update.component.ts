@@ -28,7 +28,7 @@ export class RubriqueUpdateComponent implements OnInit {
 
   ngOnInit() {
       this.registerForm = this.formBuilder.group({
-      designation: [this.rubrique['designation'], [Validators.required, Validators.maxLength(16)]],
+      designation: [this.rubrique['designation'], [Validators.required, Validators.maxLength(32)]],
       ordre: [this.rubrique['ordre'], [Validators.required, Validators.min(1), Validators.max(99)]],
       type: [this.rubrique['type'], Validators.required],
   }
