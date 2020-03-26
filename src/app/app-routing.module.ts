@@ -55,14 +55,14 @@ const routes: Routes = [{
   { path: 'Etudiant', 
     component: EtudiantListComponent },
 
-  { path: 'Evaluation', 
+  { path: 'Evaluation/:annee/:codeformation', 
     component: EvaluationListComponent },
 
   { path: 'Etudiant/Add', 
     component: EtudiantFormComponent }
     ,
 
-    { path: 'Evaluation/add', 
+    { path: 'Evaluation/Add/:annee/:codeformation', 
     component: EvaluationAddComponent }
     ,
 

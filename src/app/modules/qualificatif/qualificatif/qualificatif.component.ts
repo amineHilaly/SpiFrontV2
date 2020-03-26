@@ -81,8 +81,6 @@ export class QualificatifComponent implements OnInit {
   setSelected(){
     (document.querySelector('#li'+this.pageNumber) as HTMLLIElement).classList.add("active");
     let allPages = this.pagesRange.concat([1]);
-    console.log(allPages);
-    console.log(this.pagesRange);
     for(let i of allPages){
       if(i != this.pageNumber){
         (document.querySelector('#li'+i) as HTMLLIElement).classList.remove("active");

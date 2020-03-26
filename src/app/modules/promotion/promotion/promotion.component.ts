@@ -25,7 +25,7 @@ export class PromotionComponent implements OnInit {
   pageNumber = 1;
   pagesRange = [];
   numberOfPages;
-  numberOfElements = 1;
+  numberOfElements = 2;
   pageable;
 
   ngOnInit() {
@@ -71,8 +71,8 @@ export class PromotionComponent implements OnInit {
     this.router.navigateByUrl("EtudiantsPromotion/"+promotionParam.promotionPK.anneeUniversitaire+"/"+promotionParam.promotionPK.formation.codeFormation);
   }
 
-  RederectionEvaluations(){
-    this.router.navigateByUrl("Evaluation");
+  RederectionEvaluations(promotionParam){
+    this.router.navigateByUrl("Evaluation/" +promotionParam.promotionPK.anneeUniversitaire+"/"+promotionParam.promotionPK.formation.codeFormation);
   }
 
   change(i){

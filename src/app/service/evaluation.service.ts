@@ -26,15 +26,16 @@ export class EvaluationService {
   }
 
   public getByPromotion(pk): Observable<any>{
-    return this.http.post(this.evaluationUrl+"/evalpromo",pk);
+    console.log(pk);
+    return this.http.post(this.evaluationUrl+"/evaluation/promeval",pk);
   }
 
-  public getEcBycodeForm(): Observable<any>{
-	return this.http.get(this.evaluationUrl+"/elementConstitutif/{codeFormation}/{codeUe}");
+  public getEcBycodeForm(cf,cue): Observable<any>{
+	return this.http.get(this.evaluationUrl+"/elementConstitutif/"+cf+"/"+cue);
 }
 
-	getUeBycodeForm():Observable<any>{
-	return this.http.get(this.evaluationUrl+"/uniteEnseignement/{codeFormation}");
+	getUeBycodeForm(cf):Observable<any>{
+	return this.http.get(this.evaluationUrl+"/uniteEnseignement/"+cf);
 }
 
 

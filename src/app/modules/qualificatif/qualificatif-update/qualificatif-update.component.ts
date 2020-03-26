@@ -72,10 +72,8 @@ export class QualificatifUpdateComponent implements OnInit {
       maximal: this.myForm.controls['max'].value,
       minimal: this.myForm.controls['min'].value
     }
-    alert("sending");
     this.qualificatifService.update(body).subscribe(
       (res: boolean) => {
-        alert("done" + res);
         if (res) {
           this.router.navigateByUrl('/Qualificatif');
         } else {
