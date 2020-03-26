@@ -14,127 +14,132 @@ import { EtudiantFormComponent } from '../etudiant-form/etudiant-form.component'
 })
 export class EtudiantsPromotionComponent implements OnInit {
 
-  public  etudiants :any;
-  public promotion:any;
+  public etudiants: any;
+  public promotion: any;
   page;
   pageNumber = 1;
   pagesRange = [];
   numberOfPages;
   numberOfElements = 5;
   pageable;
+  empty = false;
 
-  constructor(private prmotionService: PromotionService, private etudiantService: EtudiantService, private domaineService: DomaineService,private theRouter:Router, private router:ActivatedRoute){
-    
+  constructor(private prmotionService: PromotionService, private etudiantService: EtudiantService, private domaineService: DomaineService, private theRouter: Router, private router: ActivatedRoute) {
+
     let annee = this.router.snapshot.paramMap.get('annee');
     let codeformation = this.router.snapshot.paramMap.get('codeformation');
-    console.log(annee+" "+codeformation);
-    this.getPromotion(annee,codeformation);
-    this.getEtudiants(annee,codeformation);
+    console.log(annee + " " + codeformation);
+    this.getPromotion(annee, codeformation);
+    this.getEtudiants(annee, codeformation);
   }
 
   private getPage() {
-    this.page = this.etudiants.slice((this.pageNumber - 1) * this.numberOfElements, this.pageNumber  * this.numberOfElements);
+    this.page = this.etudiants.slice((this.pageNumber - 1) * this.numberOfElements, this.pageNumber * this.numberOfElements);
   }
 
   ngOnInit() {
-    
+
   }
 
-  getPromotion(annee,codeFormation){
-    let promotionPK ={
+  getPromotion(annee, codeFormation) {
+    let promotionPK = {
       "anneeUniversitaire": annee,
       "formation": {
-      "codeFormation": codeFormation,
-      "diplome": "",
-      "n0Annee": 0,
-      "nomFormation": "",
-      "doubleDiplome": "",
-      "debutAccreditation": "",
-      "finAccreditation": ""
+        "codeFormation": codeFormation,
+        "diplome": "",
+        "n0Annee": 0,
+        "nomFormation": "",
+        "doubleDiplome": "",
+        "debutAccreditation": "",
+        "finAccreditation": ""
       }
-      };
-      
-      this.prmotionService.getdetailPromotion(promotionPK).subscribe ( data=>{
-        // this.etudiant=data;
-         //console.log(this.etudiant);
-          this.promotion =data;
-         console.log(this.promotion);
-   },err=>{
-     console.log(err)
-   })
-      
-    
-  }
+    };
 
-
-  getEtudiants(annee,codeFormation){
-    let promotionPK ={
-      "anneeUniversitaire": annee,
-      "formation": {
-      "codeFormation": codeFormation,
-      "diplome": "",
-      "n0Annee": 0,
-      "nomFormation": "",
-      "doubleDiplome": "",
-      "debutAccreditation": "",
-      "finAccreditation": ""
-      }
-      };
-    this.prmotionService.getEtudiantPromotion(promotionPK)
-    .subscribe ( data=>{
-         // this.etudiant=data;
-          //console.log(this.etudiant);
-          this.etudiants=data;
-          console.log(this.etudiants);
-          this.numberOfPages = Math.floor(this.etudiants.length/this.numberOfElements);
-        if((this.etudiants.length % this.numberOfElements) != 0){
-          this.numberOfPages++;
-        }
-        for(let i = 1  ; i < this.numberOfPages ; i++  ){
-          this.pagesRange.push(i+1);
-        }
-        if(this.numberOfPages == 1){
-          this.pageable= false;
-        }else{
-          this.pageable= true;
-        }
-        this.getPage();
-    },err=>{
+    this.prmotionService.getdetailPromotion(promotionPK).subscribe(data => {
+      // this.etudiant=data;
+      //console.log(this.etudiant);
+      this.promotion = data;
+      console.log(this.promotion);
+    }, err => {
       console.log(err)
     })
+
+
   }
 
 
-  change(i){
+  getEtudiants(annee, codeFormation) {
+    let promotionPK = {
+      "anneeUniversitaire": annee,
+      "formation": {
+        "codeFormation": codeFormation,
+        "diplome": "",
+        "n0Annee": 0,
+        "nomFormation": "",
+        "doubleDiplome": "",
+        "debutAccreditation": "",
+        "finAccreditation": ""
+      }
+    };
+    this.prmotionService.getEtudiantPromotion(promotionPK)
+      .subscribe(data => {
+        // this.etudiant=data;
+        //console.log(this.etudiant);
+        this.etudiants = data;
+        console.log(this.etudiants);
+        this.numberOfPages = Math.floor(this.etudiants.length / this.numberOfElements);
+
+        if(this.etudiants.length == 0){
+          this.empty=true;
+        }
+        if ((this.etudiants.length % this.numberOfElements) != 0) {
+          this.numberOfPages++;
+        }
+        for (let i = 1; i < this.numberOfPages; i++) {
+          this.pagesRange.push(i + 1);
+        }
+        if (this.numberOfPages < 1) {
+          this.pageable = false;
+        } else {
+          this.pageable = true;
+        }
+        this.getPage();
+      }, err => {
+        console.log(err)
+      })
+  }
+
+
+  change(i) {
     this.pageNumber = i;
     this.getPage();
     this.setSelected();
   }
 
-  previous(){
-    if(this.pageNumber > 1){
+  previous() {
+    if (this.pageNumber > 1) {
       this.pageNumber--;
       this.getPage()
       this.setSelected();
     }
   }
 
-  next(){
-    if(this.pageNumber < this.numberOfPages){
+  next() {
+    if (this.pageNumber < this.numberOfPages) {
       this.pageNumber++;
       this.getPage()
       this.setSelected();
     }
   }
 
-  setSelected(){
-    (document.querySelector('#li'+this.pageNumber) as HTMLLIElement).classList.add("active");
+  setSelected() {
+    (document.querySelector('#li' + this.pageNumber) as HTMLLIElement).classList.add("active");
     let allPages = this.pagesRange.concat([1]);
     console.log(allPages);
     console.log(this.pagesRange);
-    for(let i of allPages){
-      if(i != this.pageNumber){
-        (document.querySelector('#li'+i) as HTMLLIElement).classList.remove("active");
+    for (let i of allPages) {
+      if (i != this.pageNumber) {
+        (document.querySelector('#li' + i) as HTMLLIElement).classList.remove("active");
       }
     }
   }
@@ -165,7 +170,7 @@ export class EtudiantsPromotionComponent implements OnInit {
       EtudiantDetailComponent.etudiant = data;
       this.domaineService.getPays().subscribe((pays) => {
         EtudiantDetailComponent.pays = pays;
-        this.domaineService.getUniversites().subscribe((univs) =>{
+        this.domaineService.getUniversites().subscribe((univs) => {
           EtudiantDetailComponent.univs = univs;
           this.theRouter.navigateByUrl("Etudiant/detail");
         })
@@ -173,7 +178,7 @@ export class EtudiantsPromotionComponent implements OnInit {
     })
   }
 
-  addEtudiant(){
+  addEtudiant() {
     EtudiantFormComponent.promotion = this.promotion;
     this.theRouter.navigateByUrl("Etudiant/Add");
   }

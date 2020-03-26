@@ -21,6 +21,7 @@ export class EvaluationListComponent implements OnInit {
   numberOfPages;
   numberOfElements = 2;
   pageable;
+  empty;
   constructor(private evaluationService: EvaluationService,private promotionService:PromotionService, private router:Router, private activRouter:ActivatedRoute) {
     let annee = this.activRouter.snapshot.paramMap.get('annee');
     let codeformation = this.activRouter.snapshot.paramMap.get('codeformation');
@@ -67,6 +68,10 @@ export class EvaluationListComponent implements OnInit {
     this.evaluationService.getByPromotion(this.promotion)
       .subscribe((data) => {
         this.evaluations = data;
+        console.log(data);
+        if(this.evaluations.length == 0){
+          this.empty = true;
+        }
         this.numberOfPages = Math.floor(this.evaluations.length/this.numberOfElements);
         if((this.evaluations.length % this.numberOfElements) != 0){
           this.numberOfPages++;

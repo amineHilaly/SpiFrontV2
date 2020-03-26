@@ -43,7 +43,11 @@
         </tr>
       </tbody>
   </table>
-
+  <div *ngIf="empty" class="alert alert-danger" role="alert">
+    <ul>
+      cette liste est vide
+    </ul>
+  </div>
 </div>
 
 </body>
