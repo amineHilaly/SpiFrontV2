@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EvaluationService } from '../../../service/evaluation.service';
 import {FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import { PromotionService } from 'src/app/service/promotion.service';
 
 @Component({
   selector: 'app-evaluation-list',
@@ -10,29 +11,53 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class EvaluationListComponent implements OnInit {
 
-  constructor(private evaluationService: EvaluationService,  private router:Router, private activRouter:ActivatedRoute) {
-    let annee = this.activRouter.snapshot.paramMap.get('annee');
-    let codeformation = this.activRouter.snapshot.paramMap.get('codeformation');
-    console.log(annee+" "+codeformation);
-    //this.getEvaluations(annee,codeformation);
 
-   }
-
-
-
-
-
-  evaluations : any = [];
+  public  evaluations :any = [];
+  public promotion:any;
   detail : any =[];
   page;
   pageNumber = 1;
   pagesRange = [];
   numberOfPages;
-  numberOfElements = 1;
+  numberOfElements = 2;
   pageable;
+  empty;
+  constructor(private evaluationService: EvaluationService,private promotionService:PromotionService, private router:Router, private activRouter:ActivatedRoute) {
+    let annee = this.activRouter.snapshot.paramMap.get('annee');
+    let codeformation = this.activRouter.snapshot.paramMap.get('codeformation');
+    this.getPromotion(annee,codeformation);
+   }
+
+
+   getPromotion(annee,codeFormation){
+    let promotionPK ={
+      "anneeUniversitaire": annee,
+      "formation": {
+      "codeFormation": codeFormation,
+      "diplome": "",
+      "n0Annee": 0,
+      "nomFormation": "",
+      "doubleDiplome": "",
+      "debutAccreditation": "",
+      "finAccreditation": ""
+      }
+      };
+      
+      this.promotionService.getdetailPromotion(promotionPK).subscribe ( data=>{
+          this.promotion =data;
+          this.getAll();
+   },err=>{
+     console.log(err)
+   })
+      
+    
+  }
+
+
+
 
   ngOnInit() {
-    this.getAll();
+    
   }
 
   private getPage() {
@@ -40,9 +65,13 @@ export class EvaluationListComponent implements OnInit {
   }
 
   private getAll() {
-    this.evaluationService.getAllEvaluations()
+    this.evaluationService.getByPromotion(this.promotion)
       .subscribe((data) => {
         this.evaluations = data;
+        console.log(data);
+        if(this.evaluations.length == 0){
+          this.empty = true;
+        }
         this.numberOfPages = Math.floor(this.evaluations.length/this.numberOfElements);
         if((this.evaluations.length % this.numberOfElements) != 0){
           this.numberOfPages++;
@@ -50,7 +79,7 @@ export class EvaluationListComponent implements OnInit {
         for(let i = 1  ; i < this.numberOfPages ; i++  ){
           this.pagesRange.push(i+1);
         }
-        if(this.numberOfPages == 1){
+        if(this.numberOfPages <= 1){
           this.pageable= false;
         }else{
           this.pageable= true;
@@ -65,49 +94,9 @@ export class EvaluationListComponent implements OnInit {
 
 
 
-
-    private getEvaluations(annee,codeFormation){
-    let promotionPK ={
-      "anneeUniversitaire": annee,
-      "formation": {
-      "codeFormation": codeFormation,
-      "diplome": "",
-      "n0Annee": 0,
-      "nomFormation": "",
-      "doubleDiplome": "",
-      "debutAccreditation": "",
-      "finAccreditation": ""
-      }
-      };
-    this.evaluationService.getByPromotion(promotionPK)
-    .subscribe ( data=>{
-         // this.etudiant=data;
-          //console.log(this.etudiant);
-          this.evaluations=data;
-          console.log(this.evaluations);
-          this.numberOfPages = Math.floor(this.evaluations.length/this.numberOfElements);
-        if((this.evaluations.length % this.numberOfElements) != 0){
-          this.numberOfPages++;
-        }
-        for(let i = 1  ; i < this.numberOfPages ; i++  ){
-          this.pagesRange.push(i+1);
-        }
-        if(this.numberOfPages == 1){
-          this.pageable= false;
-        }else{
-          this.pageable= true;
-        }
-        this.getPage();
-    },err=>{
-      console.log(err)
-    })
-  }
-
-
-
-
   RederectionAjout(){
-    this.router.navigateByUrl("Evaluation/add");
+    let promotionParam = this.promotion;
+    this.router.navigateByUrl("Evaluation/Add/" +promotionParam.promotionPK.anneeUniversitaire+"/"+promotionParam.promotionPK.formation.codeFormation);
   }
 
   change(i){

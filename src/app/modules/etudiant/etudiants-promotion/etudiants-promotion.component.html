@@ -61,6 +61,10 @@
         <li class="page-item"><a class="page-link" (click)="next()">&gt;&gt;</a></li>
       </ul>
     </nav>
+
+    <div *ngIf="empty" class="alert alert-danger" role="alert">
+        cette liste est vide
+    </div>
   </div>
 
 </body>

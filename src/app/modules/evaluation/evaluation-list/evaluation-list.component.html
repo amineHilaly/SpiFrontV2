@@ -25,15 +25,15 @@
     <table class="table">
       <thead>
         <tr>
-        <th>Désignation</th>
-        <th>Code formation</th>
-        <th>Année universitaire</th>
-        <th>Etat</th>
-        <th>Module</th>
-        <th>Élément</th>
-        <th>Période</th>
-        <th>Date début</th>
-        <th>Date fin</th>
+        <th style=" width:  11%;">Désignation</th>
+        <th style=" width:  11%;">Code formation</th>
+        <th style=" width:  11%;">Année universitaire</th>
+        <th style=" width:  11%;">Etat</th>
+        <th style=" width:  11%;">Module</th>
+        <th style=" width:  11%;">Élément</th>
+        <th style=" width:  11%;">Période</th>
+        <th style=" width:  11%;">Date début</th>
+        <th style=" width:  11%;">Date fin</th>
 
       </tr>
       </thead>
@@ -44,7 +44,7 @@
           <td>{{ evaluation.promotion.promotionPK.anneeUniversitaire }}</td>
           <td>{{ evaluation.etat }}</td>
           <td>{{ evaluation.uniteEnseignement.id.codeUe }}</td>
-          <td>{{ evaluation.elementConstitutif }}</td>
+          <td>{{ evaluation.elementConstitutif==null?'':evaluation.elementConstitutif.id.codeEc }}</td>
           <td>{{ evaluation.periode }}</td>
           <td>{{evaluation.debutReponse | date: 'medium': undefined : 'fr'}}</td>
           <td>{{evaluation.finReponse | date: 'medium': undefined : 'fr'}}</td>
@@ -64,7 +64,9 @@
         <li class="page-item"><a class="page-link" (click)="next()">&gt;&gt;</a></li>
       </ul>
     </nav>
-
+    <div *ngIf="empty" class="alert alert-danger" role="alert">
+        cette liste est vide
+    </div>
   </div>
 
 </body>

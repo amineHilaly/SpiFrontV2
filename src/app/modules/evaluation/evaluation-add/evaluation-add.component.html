@@ -32,22 +32,8 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-paperclip"></i></span>
-                <input name="designation" formControlName="designation" id="nom" ng-model="designation" required placeholder="Désignation"
+                <input name="designation" formControlName="designation" id="designation" ng-model="designation" required placeholder="Désignation"
                   class="form-control" type="text">
-              </div>
-            </div>
-          </div>
-
-
-          
-
-          <div class="form-group col-md-6">
-            <label class="col-md-4 control-label">Formation</label>
-            <div class="col-md-7 inputGroupContainer">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
-                <input name="codeFormation" formControlName="codeFormation" id="codeFormation" placeholder="Code formation" class="form-control"
-                  type="text">
               </div>
             </div>
           </div>
@@ -59,8 +45,12 @@
             <div class="col-md-7 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                <input name="etat" formControlName="etat" id="etat"
-                  placeholder="Etat" class="form-control" type="text">
+                <select name="etat" formControlName="etat" id="etat"
+                  class="form-control selectpicker" [(ngModel)]="ela">
+                  <option value="ELA">En cours d'évaluation</option>
+                  <option value="DIS">Mise à disposition</option>
+                  <option value="CLO">Cloturé</option>
+                </select>
               </div>
             </div>
           </div>
@@ -112,23 +102,6 @@
               </div>
             </div>
           </div>
-
-
-          <div class="form-group col-md-6">
-            <label class="col-md-4 control-label">Année universitaire</label>
-            <div class="col-md-7 inputGroupContainer">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                <select name="anneeUniversitaire" formControlName="anneeUniversitaire" id="anneeUniversitaire"
-                  class="form-control selectpicker">
-                  <option hidden>Seléctionner une année</option>
-                  <option *ngFor="let p of ueList " [value]="p.id.codeUe">{{p.id.codeUe}}</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-
                   
         </div>
         <!-- Text input-->
@@ -151,9 +124,8 @@
 
 
                 <select name="ue" formControlName="ue" id="ue" placeholder="Unité d'enseignement" 
-                  class="form-control selectpicker">
-                  <option hidden>Seléctionner une unité d'enseignement</option>
-                  <option *ngFor="let p of ueList " [value]="p.id.codeUe">{{p.id.codeUe}}</option>
+                  class="form-control selectpicker" (change)="onChange($event.target.value)" >
+                  <option *ngFor="let p of ueList " [value]="p.id.codeUe">{{p.designation}}</option>
                 </select>
 
                 
@@ -171,9 +143,8 @@
 
 
                 <select name="ec" formControlName="ec" id="ec" placeholder="Element constitutif"
-                  class="form-control selectpicker">
-                  <option hidden>Seléctionner un element</option>
-                  <option *ngFor="let e of ecList " [value]="e.id.codeUe">{{p.id.codeUe}}</option>
+                  class="form-control selectpicker" >
+                  <option *ngFor="let e of ecList " [value]="e.id.codeEc">{{e.designation}}</option>
                 </select>
 
               </div>
