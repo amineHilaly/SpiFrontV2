@@ -148,9 +148,9 @@ export class EvaluationAddComponent implements OnInit {
     }
 
     
-    if( (this.myForm.controls["designation"].value as string).indexOf(' ') >=0){
+    if( (this.myForm.controls["designation"].value as string).trim().length == 0){
       this.error = true;
-      this.messages[4].exists = true;
+      this.messages[0].exists = true;
       (document.querySelector('#designation') as HTMLInputElement).style.borderColor = 'red';
     }else{
       (document.querySelector('#designation') as HTMLInputElement).style.borderColor = '';
