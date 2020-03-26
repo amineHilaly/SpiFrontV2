@@ -13,12 +13,12 @@
 
 <body>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-title">Confirmation du suppression</h4>
+    <h4 class="modal-title" id="modal-title">Confirmation de suppression</h4>
   </div>
   <div class="modal-body">
     <p><strong>Est ce que vous êtes sure ?</strong></p>
-    <p>Toutes ces informations vont être supprimées
-      <span class="text-danger">cet operation est irreversible</span>
+    <p>Toute ces informations vont être supprimés
+      <span class="text-danger">cette operation est irreversible</span>
     </p>
   </div>
   <div class="modal-footer">
@@ -26,7 +26,7 @@
     <button type="button" class="btn btn-danger" (click)="delete()">Supprimer</button>
   </div>
   <div *ngIf="error" class="alert alert-danger" role="alert">
-    Suppression impossible : Qualifiactif déja utilisée dans une ou plusieurs questions
+    Suppression impossible : Rubrique déja referencée
   </div>
 
 </body>

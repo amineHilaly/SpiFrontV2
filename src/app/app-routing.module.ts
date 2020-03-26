@@ -18,7 +18,12 @@ import { EtudiantDetailComponent } from './modules/etudiant/etudiant-detail/etud
 import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etudiant-update.component';
 import { from } from 'rxjs';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
-import { QuestionComponent } from './modules/question/question/question.component';
+import { ListCComponent } from './modules/questions/list/list-c/list-c.component';
+import { AddCComponent } from './modules/questions/add/add-c/add-c.component';
+import { UpdateCComponent } from './modules/questions/update/update-c/update-c.component';
+import { RubriqueComponent } from './modules/Rubriques/rubrique/rubrique.component';
+import { RubriqueAddComponent } from './modules/Rubriques/rubrique-add/rubrique-add.component';
+import { RubriqueUpdateComponent } from './modules/Rubriques/rubrique-update/rubrique-update.component';
 
 
 
@@ -38,9 +43,6 @@ const routes: Routes = [{
     path: 'EtudiantsPromotion/:annee/:codeformation',
     component: EtudiantsPromotionComponent
   },{
-    path: 'Question',
-    component: QuestionComponent
-  },{
     path: 'Qualificatif',
     component: QualificatifComponent
   },
@@ -51,6 +53,18 @@ const routes: Routes = [{
   {
     path: 'Qualificatif/update/:id/:min/:max',
     component: QualificatifUpdateComponent
+  },
+  {
+    path: 'Questions',
+    component: ListCComponent
+  },
+  {
+    path: 'Questions/add',
+    component: AddCComponent
+  },
+  {
+    path: 'Questions/update',
+    component: UpdateCComponent
   },
   { path: 'Etudiant', 
     component: EtudiantListComponent },
@@ -72,8 +86,18 @@ const routes: Routes = [{
 
   { path: 'Etudiant/update', 
     component: EtudiantUpdateComponent }
-  ,{
-    path: '',
+  ,
+
+  { path: 'Rubriques', 
+  component: RubriqueComponent }
+  ,
+  { path: 'Rubriques/Add', 
+  component: RubriqueAddComponent }
+  ,
+  { path: 'Rubriques/Update/:id/:designation/:ordre/:type', 
+  component: RubriqueUpdateComponent }
+  ,
+  { path: '',
     component: HomeComponent
   }]
 }];

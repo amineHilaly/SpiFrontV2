@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- main app container -->
+<div class="card m-3">
+    <h5 class="card-header">Ajouter une Rubrique</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        
+                <div class="form-group col-5">
+                    <label>Designation</label>
+                    <input type="text" id="Designation" name="Designation" formControlName="designation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.designation.errors }" />
+                    <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+                        <div *ngIf="f.designation.errors.required">Designation est obligatoire</div>
+                        <div *ngIf="f.designation.errors.maxlength">la Desigantion ne doit pas dépasser 16 caractères</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>Ordre</label>
+                    <input type="number" id="Ordre" name="Ordre" formControlName="ordre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ordre.errors }" />
+                    <div *ngIf="submitted && f.ordre.errors" class="invalid-feedback">
+                        <div *ngIf="f.ordre.errors.required">Ordre est obligatoire</div>
+                        <div *ngIf="f.ordre.errors.max">l'ordre est un chiffre entre 1 et 99</div>
+                    </div>
+                </div>
+            
+                <div class="form-group col-5">
+                    <label>Type</label>
+                    <select formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                        <option value=""></option>
+                        <option value="RBS">RBS</option>
+                        <option value="RBP">RBP</option>
+                    </select>
+                    <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                        <div *ngIf="f.type.errors.required">Type est obligatoire</div>
+                    </div>
+                    
+                </div>
+            
+           
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Modifier</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Réinitialiser</button>
+            </div>
+            <br>
+            <div *ngIf="error" class="alert alert-danger" role="alert" >
+                {{message}}
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+
+</html>

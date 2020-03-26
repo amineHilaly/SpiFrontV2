@@ -29,7 +29,9 @@ export class QualificatifUpdateComponent implements OnInit {
     this.myForm = new FormGroup({
       max: new FormControl(this.qualificatif['max']),
       min: new FormControl(this.qualificatif['min'])
+      
     });
+    console.log(this.myForm);
 
   }
 

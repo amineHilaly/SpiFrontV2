@@ -24,7 +24,7 @@ export class EtudiantFormComponent implements OnInit {
     text:"un ou plusieur champ sont vides.",
     exists:false
   },{
-    text:"un ou plusieur champ sont remplis par des valeurs trop longues.",
+    text:"un ou plusieurs champs sont remplis par des valeurs trop longues.",
     exists:false
   },{
     text:"la date est mal remplis.",

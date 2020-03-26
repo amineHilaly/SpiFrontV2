@@ -18,10 +18,16 @@ import { EtudiantUpdateComponent } from './modules/etudiant/etudiant-update/etud
 import { DatePipe } from '@angular/common';
 import { ConfirmationComponent } from './modules/extra/confirmation/confirmation.component';
 import { EtudiantsPromotionComponent } from './modules/etudiant/etudiants-promotion/etudiants-promotion.component';
-import { QuestionComponent } from './modules//question/question/question.component';
-import { AddQuestionComponent } from './modules/question/add-question/add-question.component';
-import { UpdateQuestionComponent } from './modules/question/update-question/update-question.component';
 import { MatIconModule } from '@angular/material';
+import { AddCComponent } from './modules/questions/add/add-c/add-c.component';
+import { ListCComponent } from './modules/questions/list/list-c/list-c.component';
+import { UpdateCComponent } from './modules/questions/update/update-c/update-c.component';
+import { ConfirmComponent } from './modules/extra/confirmQuestion/confirm/confirm.component';
+import { RubriqueComponent } from './modules/Rubriques/rubrique/rubrique.component';
+import { ConfirmationRubriqueComponent } from './modules/extra/confirmation-rubrique/confirmation-rubrique.component';
+import { RubriqueAddComponent } from './modules/Rubriques/rubrique-add/rubrique-add.component';
+import { RubriqueUpdateComponent } from './modules/Rubriques/rubrique-update/rubrique-update.component';
+
 import { EvaluationListComponent } from './modules/evaluation/evaluation-list/evaluation-list.component';
 import { EvaluationAddComponent } from './modules/evaluation/evaluation-add/evaluation-add.component';
 import { registerLocaleData } from '@angular/common';
@@ -41,14 +47,25 @@ registerLocaleData(localeFr, 'fr')
     EtudiantDetailComponent,
     ConfirmationComponent,
     EtudiantsPromotionComponent,
-    QuestionComponent,
-    AddQuestionComponent,
-    UpdateQuestionComponent,
+    RubriqueComponent,
+    ConfirmationRubriqueComponent,
+    RubriqueAddComponent,
+    RubriqueUpdateComponent,
+    AddCComponent,
+    ListCComponent,
+    UpdateCComponent,
+    ConfirmComponent,
+    EvaluationListComponent,
+    EvaluationAddComponent,
+    AddCComponent,
+    ListCComponent,
+    UpdateCComponent,
+    ConfirmComponent,
     EvaluationListComponent,
     EvaluationAddComponent,
     
   ],
-  entryComponents: [DialogInfoComponent, ConfirmationComponent],
+  entryComponents: [DialogInfoComponent, ConfirmationComponent,ConfirmationRubriqueComponent,ConfirmComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
