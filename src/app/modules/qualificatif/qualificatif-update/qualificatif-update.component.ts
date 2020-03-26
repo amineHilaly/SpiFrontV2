@@ -45,9 +45,9 @@ export class QualificatifUpdateComponent implements OnInit {
       this.error=true;
       (document.querySelector('#max') as HTMLInputElement).style.borderColor = 'red';
       if(this.myForm.controls['max'].value == null || this.myForm.controls['max'].value == ''){
-        this.message = "un ou plusieur champ sont vides";
+        this.message = "un ou plusieurs champs sont vides";
       }else{
-        this.message = "un ou plusieur champ sont remplis par des valeurs trop longues (maixmum 16 caractères)";
+        this.message = "un ou plusieurs champs sont remplis par des valeurs trop longues (maixmum 16 caractères)";
       }
     }else{
       (document.querySelector('#max') as HTMLInputElement).style.borderColor = '';
@@ -57,9 +57,9 @@ export class QualificatifUpdateComponent implements OnInit {
       this.error=true;
       (document.querySelector('#min') as HTMLInputElement).style.borderColor = 'red';
       if(this.myForm.controls['min'].value == null || this.myForm.controls['min'].value == '' ){
-        this.message = "un ou plusieur champ sont vides";
+        this.message = "un ou plusieurs champs sont vides";
       }else{
-        this.message = "un ou plusieur champ sont remplis par des valeurs trop longues (maixmum 16 caractères)";
+        this.message = "un ou plusieurs champs sont remplis par des valeurs trop longues (maixmum 16 caractères)";
       }
     }else{
       (document.querySelector('#min') as HTMLInputElement).style.borderColor = '';
@@ -80,7 +80,7 @@ export class QualificatifUpdateComponent implements OnInit {
           this.router.navigateByUrl('/Qualificatif');
         } else {
           this.error = true;
-          this.message = "mise a jour impossible : qualificatif referencé dans un ou plusieur question";
+          this.message = "mise à jour impossible : qualificatif referencié dans une ou plusieurs questions";
         }
       }
     );

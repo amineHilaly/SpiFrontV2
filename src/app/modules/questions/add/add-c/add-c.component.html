@@ -27,7 +27,7 @@
                       <label class="col-md-4 control-label">Intitulé</label>
                       <div class="col-md-7 inputGroupContainer">
                         <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
                           <input name="intitule" id="intitule" formControlName="intitule"
                             placeholder="Intitulé" class="form-control" type="text">
                         </div>
@@ -40,7 +40,7 @@
                       <label class="col-md-4 control-label">Type</label>
                       <div class="col-md-7 selectContainer">
                         <div class="input-group">
-                          <span class="input-group-addon"> <i class="glyphicon glyphicon-user"></i></span>
+                          <span class="input-group-addon"> <i class="glyphicon glyphicon-tags"></i></span>
                           <select id="type" name="type" formControlName="type" [(ngModel)]="type" class="form-control selectpicker">
                             <option hidden>Type Question</option>
                             <option value="QUS">standard</option>
@@ -51,11 +51,11 @@
                   
                        
                        
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-12">
             <label class="col-md-4 control-label"> Qualificatif </label>
-            <div class="col-md-7 inputGroupContainer">
+            <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
                 <select name="qualificatif" formControlName="qualificatif" id="qualificatif"
                   class="form-control selectpicker">
                   <option hidden>Seléctionner le Qualificatif associé</option>

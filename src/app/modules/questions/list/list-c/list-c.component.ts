@@ -37,6 +37,8 @@ export class ListCComponent implements OnInit {
         if((this.questions.length % this.numberOfElements) != 0){
           this.numberOfPages++;
         }
+        this.pagesRange=[];
+
         for(let i = 1  ; i < this.numberOfPages ; i++  ){
           this.pagesRange.push(i+1);
         }
@@ -104,10 +106,15 @@ export class ListCComponent implements OnInit {
       console.log("dkhelt ldétail");
       question = data[0];
       console.log(question);
+      
 
-      UpdateCComponent.question = question;
+           UpdateCComponent.question = question;
+      
             this.router.navigate(['Questions/update']);
+    
+      
       })
+    
   }
 }
 

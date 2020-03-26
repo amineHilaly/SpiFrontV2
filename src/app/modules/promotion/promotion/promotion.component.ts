@@ -44,6 +44,7 @@ export class PromotionComponent implements OnInit {
         if((this.promotions.length % this.numberOfElements) != 0){
           this.numberOfPages++;
         }
+
         for(let i = 1  ; i < this.numberOfPages ; i++  ){
           this.pagesRange.push(i+1);
         }

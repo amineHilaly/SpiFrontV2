@@ -39,13 +39,13 @@ export class EvaluationAddComponent implements OnInit {
 
   myPromotion;
   messages = [{
-    text: "un ou plusieur champ sont vides.",
+    text: "un ou plusieurs champs sont vides.",
     exists: false
   }, {
-    text: "un ou plusieur champ sont remplis par des valeurs trop longues.",
+    text: "un ou plusieurs champs sont remplis par des valeurs trop longues.",
     exists: false
   }, {
-    text: "les dates sont mal remplis.",
+    text: "les dates ne sont pas bien remplies",
     exists: false
   }, {
     text: "Evaluation existe déja pour cette UE.",

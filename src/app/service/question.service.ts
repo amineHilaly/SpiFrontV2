@@ -13,6 +13,7 @@ export class QuestionService {
   endpointt = 'http://localhost:8080/Addquestion';
   endpointtt = 'http://localhost:8080/updateQuestion';
   endpointttt = 'http://localhost:8080/question';
+  endpoin = 'http://localhost:8080/ref';
 
 
 
@@ -52,6 +53,17 @@ export class QuestionService {
     }
 
     return this.http.post(this.endpointttt, question,options);
+  }
+  ref(question){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    let options = {
+      headers: headers
+    }
+
+    return this.http.post(this.endpoin, question,options);
+
   }
 
 }

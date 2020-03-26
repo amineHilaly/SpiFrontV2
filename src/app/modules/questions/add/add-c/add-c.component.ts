@@ -15,7 +15,7 @@ export class AddCComponent implements OnInit {
   error : boolean=false;
   type='QUS'
   messages = [{
-    text:"un ou plusieur champ sont vides.",
+    text:"un ou plusieurs champs sont vides.",
     exists:false
   },{
     text:"un ou plusieurs champs sont remplis par des valeurs trop longues. ",
@@ -68,6 +68,18 @@ export class AddCComponent implements OnInit {
         (document.querySelector('#'+this.fields[i]) as HTMLInputElement).style.borderColor = '';
       }
     }
+    if ((this.isNotNullable[0] && (this.myForm.controls[this.fields[0]].value == null || this.myForm.controls[this.fields[0]].value.trim() == '')) ||
+        (this.sizes[0] > 0 && this.myForm.controls[this.fields[0]].value != null && this.myForm.controls[this.fields[0]].value.length > this.sizes[0])) {
+        this.error = true;
+        (document.querySelector('#' + this.fields[0]) as HTMLInputElement).style.borderColor = 'red';
+        if ((this.isNotNullable[0] && (this.myForm.controls[this.fields[0]].value == null || this.myForm.controls[this.fields[0]].value.trim() == ''))) {
+          this.messages[0].exists = true;
+        } else {
+          this.messages[1].exists = true;
+        }
+      } else {
+        (document.querySelector('#'+this.fields[0]) as HTMLInputElement).style.borderColor = '';
+      }
     if(this.error){
       return;
     }
@@ -91,7 +103,7 @@ export class AddCComponent implements OnInit {
     }
     
     let body = {
-      intitule: this.myForm.controls['intitule'].value,
+      intitule:(this.myForm.controls['intitule'].value as string).trim(),
       type:this.myForm.controls['type'].value,
       noEnseignant:null,
       qualificatif:newqualif

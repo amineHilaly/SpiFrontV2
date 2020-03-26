@@ -33,7 +33,11 @@ export class UpdateCComponent implements OnInit {
   {
     text: "l'intitulé est dèjà existant ",
     exists: false
-  }]
+  }
+,{
+  text: "la question ne peut pas être modifiée: question référenciée",
+  exists: false
+}]
 
   fields = ['intitule',  'qualificatif'];
   isNotNullable = [true, true];
@@ -88,6 +92,18 @@ export class UpdateCComponent implements OnInit {
         (document.querySelector('#'+this.fields[i]) as HTMLInputElement).style.borderColor = '';
       }
     }
+    if ((this.isNotNullable[0] && (this.myForm.controls[this.fields[0]].value == null || this.myForm.controls[this.fields[0]].value.trim() == '')) ||
+        (this.sizes[0] > 0 && this.myForm.controls[this.fields[0]].value != null && this.myForm.controls[this.fields[0]].value.length > this.sizes[0])) {
+        this.error = true;
+        (document.querySelector('#' + this.fields[0]) as HTMLInputElement).style.borderColor = 'red';
+        if ((this.isNotNullable[0] && (this.myForm.controls[this.fields[0]].value == null || this.myForm.controls[this.fields[0]].value.trim() == ''))) {
+          this.messages[0].exists = true;
+        } else {
+          this.messages[1].exists = true;
+        }
+      } else {
+        (document.querySelector('#'+this.fields[0]) as HTMLInputElement).style.borderColor = '';
+      }
     if (this.error) {
       return;
     }
@@ -113,21 +129,45 @@ export class UpdateCComponent implements OnInit {
      console.log(this.qualificatifs);
     let newQuestion = {
       idQuestion: UpdateCComponent.question.idQuestion,
-      intitule: this.myForm.controls['intitule'].value,
+      intitule: (this.myForm.controls['intitule'].value as string).trim(),
       type: this.myForm.controls['type'].value,
       noEnseignant: null,
       qualificatif: newqualif
 
     }
+    console.log(newQuestion);
+    this.questionService.ref(newQuestion).subscribe((res) => {
+     if(res){
+      console.log(res);
+      console.log("référncié");
+      this.error=true;
+      this.messages[3].exists = true;
+     }
+     else
+     
+     {
+      console.log("machi référncié");
+      
     this.questionService.update(newQuestion).subscribe((res) => {
       console.log(newQuestion);
       if (res) {
+        console.log("bien modifié");
+
         this.router.navigateByUrl('/Questions');
 
       } else {
+        this.error=true;
+        console.log("intitulé existe déjà");
+
         this.messages[2].exists = true;
+        console.log("intitulé existe déjà");
+
+
       }
     });
+
+  }
+});
   }
 
 }

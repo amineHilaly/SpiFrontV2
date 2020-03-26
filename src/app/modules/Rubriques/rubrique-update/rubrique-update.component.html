@@ -18,7 +18,7 @@
                     <label>Designation</label>
                     <input type="text" id="Designation" name="Designation" formControlName="designation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.designation.errors }" />
                     <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
-                        <div *ngIf="f.designation.errors.required">Designation est obligatoire</div>
+                        <div *ngIf="f.designation.errors.required">Désignation est obligatoire</div>
                         <div *ngIf="f.designation.errors.maxlength">la Desigantion ne doit pas dépasser 16 caractères</div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     <label>Ordre</label>
                     <input type="number" id="Ordre" name="Ordre" formControlName="ordre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ordre.errors }" />
                     <div *ngIf="submitted && f.ordre.errors" class="invalid-feedback">
-                        <div *ngIf="f.ordre.errors.required">Ordre est obligatoire</div>
+                        <div *ngIf="f.ordre.errors.required">l'Ordre est obligatoire</div>
                         <div *ngIf="f.ordre.errors.max">l'ordre est un chiffre entre 1 et 99</div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <option value="RBP">RBP</option>
                     </select>
                     <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
-                        <div *ngIf="f.type.errors.required">Type est obligatoire</div>
+                        <div *ngIf="f.type.errors.required">le Type est obligatoire</div>
                     </div>
                     
                 </div>

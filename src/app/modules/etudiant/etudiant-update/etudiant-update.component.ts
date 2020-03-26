@@ -48,25 +48,26 @@ export class EtudiantUpdateComponent implements OnInit {
   groupeAnglais: any;
   static promotion: any;
   messages = [{
-    text:"un ou plusieur champ sont vides.",
+    text:"un ou plusieurs champs sont vides.",
     exists:false
   },{
-    text:"un ou plusieur champ sont remplis par des valeurs trop longues.",
+    text:"un ou plusieurs champs sont remplis par des valeurs trop longues.",
     exists:false
   },{
-    text:"la date est mal remplis.",
+    text:"date n'est pas bien remplie",
     exists:false
   },{
-    text:"groupe Tp doit étre égale à 1, 2 ou vide.",
+    text:"le groupe Tp doit étre égale à 1, 2 ou vide.",
     exists:false
   },{
-    text:"groupe Anglais doit étre égale à 1, 2 ou vide.",
+    text:"le groupe Anglais doit étre égale à 1, 2 ou vide.",
     exists:false
   },{
-    text:"Erreur de la modification.",
+    text:"Erreur de modification.",
     exists:false
   }]
 
+  
   error = false;
   fields = [ 'nom', 'prenom', "sex", 'dateNaissance', 'lieuNaissance', 'nationalite', 'email',
     'emailUbo', 'numPortable', 'numFixe', 'adresse', 'codePostal', 'ville', 'paysOrigine', 'universiteOrigine',

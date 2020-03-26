@@ -39,6 +39,8 @@ export class RubriqueComponent implements OnInit {
         if((this.rubriques.length % this.numberOfElements) != 0){
           this.numberOfPages++;
         }
+        this.pagesRange=[];
+
         for(let i = 1  ; i < this.numberOfPages ; i++  ){
           this.pagesRange.push(i+1);
         }

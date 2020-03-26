@@ -21,25 +21,25 @@ export class EtudiantFormComponent implements OnInit {
   static promotion: any ;
   myPromotion;
   messages = [{
-    text:"un ou plusieur champ sont vides.",
+    text:"un ou plusieurs champs sont vides.",
     exists:false
   },{
     text:"un ou plusieurs champs sont remplis par des valeurs trop longues.",
     exists:false
   },{
-    text:"la date est mal remplis.",
+    text:"date n'est pas bien remplie",
     exists:false
   },{
-    text:"groupe Tp doit étre égale à 1, 2 ou vide.",
+    text:"le groupe Tp doit étre égale à 1, 2 ou vide.",
     exists:false
   },{
-    text:"groupe Anglais doit étre égale à 1, 2 ou vide.",
+    text:"le groupe Anglais doit étre égale à 1, 2 ou vide.",
     exists:false
   },{
-    text:"le numéro d'étudiant que vous avez choisis existe déja dans notre base de données.",
+    text:"le numéro d'étudiant dèjà existant",
     exists:false
   },{
-    text:"Erreur de l'insertion.",
+    text:"Erreur d'insertion.",
     exists:false
   }]
   error: boolean = false;
