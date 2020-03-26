@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { RubriqueService } from 'src/app/service/rubrique.service';
 import { Router } from '@angular/router';
+import { WhiteSpaceValidator } from '../WhiteSpace.validator';
 
 @Component({
   selector: 'app-rubrique-add',
@@ -12,16 +13,17 @@ export class RubriqueAddComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
-
+  T = "RBS";
   constructor(private formBuilder: FormBuilder, public rubriqueService:RubriqueService , private router: Router) { }
   
 
 
   ngOnInit() {
       this.registerForm = this.formBuilder.group({
-      designation: ['', [Validators.required, Validators.maxLength(32)]],
+      designation: ['', [Validators.required, Validators.maxLength(32),WhiteSpaceValidator.cannotContainSpace]],
       ordre: ['', [Validators.required, Validators.min(1), Validators.max(99)]],
       type: ['', Validators.required],
+      
   }
     );
   

@@ -15,6 +15,7 @@ export class RubriqueUpdateComponent implements OnInit {
   public rubrique = { designation :'p', ordre :'o', type :'t'};
   message : string ="";
   error : boolean=false;
+
   
 
 
