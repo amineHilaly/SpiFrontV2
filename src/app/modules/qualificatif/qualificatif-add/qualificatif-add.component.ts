@@ -38,10 +38,10 @@ export class QualificatifAddComponent implements OnInit {
     for (let m of this.messages){
       m.exists =false;
     }
-    if(this.myForm.controls['max'].value == null || this.myForm.controls['max'].value == '' || this.myForm.controls['max'].value.length > 16){
+    if(this.myForm.controls['max'].value == null || this.myForm.controls['max'].value.trim() == '' || this.myForm.controls['max'].value.length > 16){
       this.error=true;
       (document.querySelector('#max') as HTMLInputElement).style.borderColor = 'red';
-      if(this.myForm.controls['max'].value == null || this.myForm.controls['max'].value == ''){
+      if(this.myForm.controls['max'].value == null || this.myForm.controls['max'].value.trim() == ''){
         this.messages[0].exists = true;
       }else{
         this.messages[1].exists = true;      }
@@ -49,10 +49,10 @@ export class QualificatifAddComponent implements OnInit {
       (document.querySelector('#max') as HTMLInputElement).style.borderColor = '';
     }
 
-    if(this.myForm.controls['min'].value == null || this.myForm.controls['min'].value == '' || this.myForm.controls['min'].value.length > 16){
+    if(this.myForm.controls['min'].value == null || this.myForm.controls['min'].value.trim() == '' || this.myForm.controls['min'].value.length > 16){
       this.error=true;
       (document.querySelector('#min') as HTMLInputElement).style.borderColor = 'red';
-      if(this.myForm.controls['min'].value == null || this.myForm.controls['min'].value == '' ){
+      if(this.myForm.controls['min'].value == null || this.myForm.controls['min'].value.trim() == '' ){
         this.messages[0].exists = true;
       }else{
         this.messages[1].exists = true;

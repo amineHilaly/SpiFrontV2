@@ -50,6 +50,9 @@ export class EvaluationAddComponent implements OnInit {
   }, {
     text: "Evaluation existe déja pour cette UE.",
     exists: false
+  },  {
+    text: "designation contient un ou plusieurs espaces",
+    exists: false
   }]
   error: boolean = false;
   fields = ['designation', "periode", "debutReponse", "finReponse", "ue"];
@@ -144,6 +147,14 @@ export class EvaluationAddComponent implements OnInit {
       (document.querySelector('#finReponse') as HTMLInputElement).style.borderColor = '';
     }
 
+    
+    if( (this.myForm.controls["designation"].value as string).indexOf(' ') >=0){
+      this.error = true;
+      this.messages[4].exists = true;
+      (document.querySelector('#designation') as HTMLInputElement).style.borderColor = 'red';
+    }else{
+      (document.querySelector('#designation') as HTMLInputElement).style.borderColor = '';
+    }
     if (this.error) {
       return;
     }

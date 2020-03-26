@@ -41,6 +41,9 @@ export class EtudiantFormComponent implements OnInit {
   },{
     text:"Erreur d'insertion.",
     exists:false
+  }, {
+    text:"N° étudiant contient un ou plusieurs espaces.",
+    exists:false
   }]
   error: boolean = false;
   fields = ['numeroEtudiant', 'nom', 'prenom', "sex", 'dateNaissance', 'lieuNaissance', 'nationalite', 'email',
@@ -135,6 +138,13 @@ export class EtudiantFormComponent implements OnInit {
       this.error = true;
       this.messages[4].exists = true;
       (document.querySelector('#groupeAnglais') as HTMLInputElement).style.borderColor = 'red';
+    }
+    if( (this.myForm.controls["numeroEtudiant"].value as string).indexOf(' ') >=0){
+      this.error = true;
+      this.messages[7].exists = true;
+      (document.querySelector('#numeroEtudiant') as HTMLInputElement).style.borderColor = 'red';
+    }else{
+      (document.querySelector('#numeroEtudiant') as HTMLInputElement).style.borderColor = '';
     }
     if (this.error){
       return;
