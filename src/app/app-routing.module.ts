@@ -94,7 +94,7 @@ const routes: Routes = [{
   { path: 'Rubriques/Add', 
   component: RubriqueAddComponent }
   ,
-  { path: 'Rubriques/Update/:id/:designation/:ordre/:type', 
+  { path: 'Rubriques/Update/:id', 
   component: RubriqueUpdateComponent }
   ,
   { path: '',
